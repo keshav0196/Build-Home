@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR HOME - Design Your Dream Space</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f2ea;
+            color: #2e2c28;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            background: #f7f2ea;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav ul a:hover {
+            color: #9a7b52;
+        }
+
+        .btn-dark {
+            background: #2e2c28;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-dark:hover {
+            background: #9a7b52;
+        }
+
+        #dark-toggle {
+            background: none;
+            border: 1px solid #9a7b52;
+            color: #9a7b52;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            margin-left: 10px;
+        }
+
+        #hero {
+            text-align: center;
+            padding: 90px 40px;
+            background: #eee7d8;
+        }
+
+        #hero h1 {
+            font-size: 50px;
+            margin-bottom: 18px;
+        }
+
+        #hero p {
+            font-size: 18px;
+            color: #585450;
+            margin-bottom: 28px;
+        }
+
+        .btn-gold {
+            background: #9a7b52;
+            color: white;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover {
+            background: #705838;
+        }
+
+        section {
+            padding: 60px 40px;
+        }
+
+        section h2 {
+            font-size: 34px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #585450;
+            margin-bottom: 36px;
+            font-size: 16px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            justify-content: center;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 28px 22px;
+            width: 250px;
+        }
+
+        .card h3 {
+            font-size: 19px;
+            color: #9a7b52;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #585450;
+            line-height: 1.6;
+        }
+
+        #projects {
+            background: #eee7d8;
+        }
+
+        .project-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .project-item {
+            background: #d8d2c8;
+            width: 260px;
+            height: 190px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #stats {
+            background: #2e2c28;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .stat-box h3 {
+            font-size: 46px;
+            color: #c4a87a;
+        }
+
+        .stat-box p {
+            font-size: 14px;
+            color: #b8b2a8;
+            margin-top: 6px;
+        }
+
+        #contact-form {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+        }
+
+        #contact-form textarea {
+            height: 110px;
+            resize: vertical;
+        }
+
+        #contact-form button {
+            width: 100%;
+        }
+
+        #form-msg {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 15px;
+        }
+
+        footer {
+            background: #2e2c28;
+            color: #b8b2a8;
+            text-align: center;
+            padding: 28px;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #9a7b52;
+        }
+
+        body.dark {
+            background: #1c1a17;
+            color: #e8e2d8;
+        }
+
+        body.dark nav {
+            background: #1c1a17;
+            border-bottom-color: #333;
+        }
+
+        body.dark #hero {
+            background: #151310;
+        }
+
+        body.dark .card {
+            background: #2a2824;
+            border-color: #444;
+        }
+
+        body.dark #projects {
+            background: #151310;
+        }
+
+        body.dark .project-item {
+            background: #2a2824;
+            color: #e8e2d8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">YOUR HOME</div>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div>
+            <button class="btn-dark" onclick="document.getElementById('contact').scrollIntoView()">Book a Call</button>
+            <button id="dark-toggle" onclick="toggleDark()">🌙 Dark</button>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <h1>Design Your<br>Dream Space</h1>
+        <p>Architecture &amp; Interior Design Studio — We build beautiful homes.</p>
+        <button class="btn-gold" onclick="document.getElementById('services').scrollIntoView()">Explore
+            Services</button>
+    </section>
+
+    <section id="services">
+        <h2>What We Do</h2>
+        <p class="subtitle">From concept to construction, we handle everything.</p>
+        <div class="cards" id="services-list"></div>
+    </section>
+
+    <section id="projects">
+        <h2>Our Projects</h2>
+        <p class="subtitle">A few homes we have designed and built.</p>
+        <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <section id="stats">
+        <h2>Our Numbers</h2>
+        <div class="stats-row">
+            <div class="stat-box">
+                <h3 id="s1">0</h3>
+                <p>Projects Done</p>
+            </div>
+            <div class="stat-box">
+                <h3 id="s2">0</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-box">
+                <h3 id="s3">0</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-box">
+                <h3 id="s4">0</h3>
+                <p>Awards Won</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p class="subtitle">Fill the form and we will contact you within 24 hours.</p>
+        <div id="contact-form">
+            <input type="text" id="name" placeholder="Your Name">
+            <input type="email" id="email" placeholder="Your Email">
+            <textarea id="message" placeholder="Your Message"></textarea>
+            <button class="btn-gold" onclick="submitForm()">Send Message</button>
+            <p id="form-msg"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 <span>YOUR HOME</span>. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Services - array of objects
+        var services = [
+            { title: "Architecture", desc: "We design modern homes from the ground up with your vision." },
+            { title: "Interior Design", desc: "Beautiful interiors that match your personality and lifestyle." },
+            { title: "3D Visualization", desc: "See your home before it is built with our 3D rendering service." },
+            { title: "Renovation", desc: "Transform your old space into something fresh and new." }
+        ];
+
+        // Add service cards using DOM manipulation
+        var serviceContainer = document.getElementById("services-list");
+        for (var i = 0; i < services.length; i++) {
+            var card = document.createElement("div");
+            card.className = "card";
+
+            var h3 = document.createElement("h3");
+            h3.textContent = services[i].title;
+
+            var p = document.createElement("p");
+            p.textContent = services[i].desc;
+
+            card.appendChild(h3);
+            card.appendChild(p);
+            serviceContainer.appendChild(card);
+        }
+
+        // Projects - array and DOM
+        var projects = ["Modern Villa", "City Apartment", "Beach House", "Mountain Cabin", "Studio Loft", "Family Home"];
+        var grid = document.getElementById("project-grid");
+
+        for (var j = 0; j < projects.length; j++) {
+            var box = document.createElement("div");
+            box.className = "project-item";
+            box.textContent = projects[j];
+            grid.appendChild(box);
+        }
+
+        // Counter animation using setInterval
+        function animateCounter(id, target) {
+            var el = document.getElementById(id);
+            var count = 0;
+            var step = Math.ceil(target / 60);
+            var timer = setInterval(function () {
+                count += step;
+                if (count >= target) { count = target; clearInterval(timer); }
+                el.textContent = count + "+";
+            }, 30);
+        }
+
+        // Trigger counters when stats section scrolls into view
+        var statsRan = false;
+        window.addEventListener("scroll", function () {
+            var rect = document.getElementById("stats").getBoundingClientRect();
+            if (rect.top < window.innerHeight && !statsRan) {
+                statsRan = true;
+                animateCounter("s1", 120);
+                animateCounter("s2", 95);
+                animateCounter("s3", 12);
+                animateCounter("s4", 18);
+            }
+        });
+
+        // Form validation + localStorage
+        function submitForm() {
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var message = document.getElementById("message").value.trim();
+            var msgEl = document.getElementById("form-msg");
+
+            if (name === "" || email === "" || message === "") {
+                msgEl.style.color = "red";
+                msgEl.textContent = "Please fill in all fields.";
+                return;
+            }
+            if (email.indexOf("@") === -1) {
+                msgEl.style.color = "red";
+                msgEl.textContent = "Please enter a valid email.";
+                return;
+            }
+
+            localStorage.setItem("lastSubmission", JSON.stringify({ name: name, email: email }));
+
+            msgEl.style.color = "green";
+            msgEl.textContent = "Thank you, " + name + "! We will contact you soon.";
+            document.getElementById("name").value = "";
+            document.getElementById("email").value = "";
+            document.getElementById("message").value = "";
+        }
+
+        // Dark mode toggle using localStorage
+        function toggleDark() {
+            var isDark = document.body.classList.toggle("dark");
+            document.getElementById("dark-toggle").textContent = isDark ? "☀️ Light" : "🌙 Dark";
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+        }
+
+        if (localStorage.getItem("theme") === "dark") {
+            document.body.classList.add("dark");
+            document.getElementById("dark-toggle").textContent = "☀️ Light";
+        }
+    </script>
+
+</body>
+
+</html>
