@@ -1,0 +1,3172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOUR HOME — Design Your Dream Space</title>
+    <meta name="description"
+        content="YOUR HOME — Architecture & Interior Design Studio. Design, visualise and build your perfect home." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,200;9..40,300;9..40,400;9..40,500&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ═══════════════════════════════════════════
+   YOUR HOME — Complete Design System
+═══════════════════════════════════════════ */
+        :root {
+            --c: #F7F2EA;
+            /* cream base */
+            --c2: #EEE7D8;
+            /* cream dark */
+            --c3: #E3D9C6;
+            /* cream deeper */
+            --g1: #D8D2C8;
+            /* grey lightest */
+            --g2: #B8B2A8;
+            /* grey light */
+            --g3: #8A8478;
+            /* grey mid */
+            --g4: #585450;
+            /* grey dark */
+            --g5: #2E2C28;
+            /* charcoal */
+            --a: #9A7B52;
+            /* accent warm gold */
+            --a2: #C4A87A;
+            /* accent light */
+            --a3: #705838;
+            /* accent deep */
+            --w: #FDFAF5;
+            /* near white */
+            --sh: rgba(46, 44, 40, .07);
+            --sh2: rgba(46, 44, 40, .14);
+            --r: 3px;
+            --fd: 'Cormorant Garamond', serif;
+            --fb: 'DM Sans', sans-serif;
+            --ease: cubic-bezier(.25, .46, .45, .94);
+            --t: .38s;
+        }
+
+        body.dark {
+            --c: #1C1A17;
+            --c2: #151310;
+            --c3: #0F0E0C;
+            --g1: #2A2824;
+            --g2: #3E3C38;
+            --g3: #6A6660;
+            --g4: #9A9690;
+            --g5: #E8E2D8;
+            --w: #201E1B;
+            --sh: rgba(0, 0, 0, .25);
+            --sh2: rgba(0, 0, 0, .5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px
+        }
+
+        body {
+            font-family: var(--fb);
+            background: var(--c);
+            color: var(--g5);
+            transition: background .5s, color .5s;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        button {
+            cursor: pointer;
+            font-family: var(--fb)
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--c2)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--g2);
+            border-radius: 4px
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--a)
+        }
+
+        /* ── Custom Cursor ── */
+        #cursor {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            background: var(--a);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width .2s, height .2s, background .2s;
+            mix-blend-mode: multiply;
+        }
+
+        #cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid var(--a);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: all .12s var(--ease);
+            opacity: .5;
+        }
+
+        body.dark #cursor {
+            mix-blend-mode: screen
+        }
+
+        a:hover~#cursor,
+        button:hover~#cursor {
+            width: 20px;
+            height: 20px
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(247, 242, 234, .88);
+            backdrop-filter: blur(20px) saturate(1.4);
+            border-bottom: 1px solid var(--g1);
+            transition: background .5s, border-color .5s;
+        }
+
+        body.dark nav {
+            background: rgba(28, 26, 23, .88)
+        }
+
+        .nav-wrap {
+            max-width: 1320px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: .9rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--fd);
+            font-size: 1.55rem;
+            font-weight: 300;
+            letter-spacing: .1em;
+            color: var(--g5);
+            display: flex;
+            align-items: baseline;
+            gap: .3rem;
+        }
+
+        .logo em {
+            font-style: italic;
+            color: var(--a);
+            font-weight: 400
+        }
+
+        .logo span {
+            font-size: .6rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--g3);
+            margin-left: .2rem;
+            font-family: var(--fb)
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul a {
+            font-size: .78rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--g3);
+            font-weight: 400;
+            position: relative;
+            padding-bottom: 2px;
+            transition: color var(--t);
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 100%;
+            height: 1px;
+            background: var(--a);
+            transition: right .3s var(--ease);
+        }
+
+        nav ul a:hover,
+        nav ul a.on {
+            color: var(--a)
+        }
+
+        nav ul a:hover::after,
+        nav ul a.on::after {
+            right: 0
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: .7rem
+        }
+
+        .n-btn {
+            background: none;
+            border: 1px solid var(--g2);
+            color: var(--g3);
+            font-size: .75rem;
+            letter-spacing: .1em;
+            padding: .38rem .9rem;
+            border-radius: 40px;
+            transition: all var(--t);
+        }
+
+        .n-btn:hover {
+            border-color: var(--a);
+            color: var(--a)
+        }
+
+        .n-btn.solid {
+            background: var(--g5);
+            border-color: var(--g5);
+            color: var(--c)
+        }
+
+        .n-btn.solid:hover {
+            background: var(--a);
+            border-color: var(--a)
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            padding: .3rem
+        }
+
+        .burger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--g5);
+            transition: all var(--t)
+        }
+
+        /* ── PAGES ── */
+        .page {
+            display: none;
+            animation: fadeIn .45s var(--ease) both
+        }
+
+        .page.on {
+            display: block
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            padding-top: 72px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1320px;
+            margin: 0 auto;
+            align-items: center;
+            gap: 3rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .hero-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero-eyebrow span {
+            font-size: .7rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--a);
+            font-weight: 500;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            flex: 0 0 32px;
+            height: 1px;
+            background: var(--a)
+        }
+
+        .hero h1 {
+            font-family: var(--fd);
+            font-size: clamp(3.2rem, 5.5vw, 6.2rem);
+            font-weight: 300;
+            line-height: 1.02;
+            color: var(--g5);
+            margin-bottom: 1.8rem;
+            letter-spacing: -.01em;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--a)
+        }
+
+        .hero h1 strong {
+            font-weight: 500
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: var(--g3);
+            line-height: 1.85;
+            max-width: 440px;
+            margin-bottom: 2.8rem;
+            font-weight: 300;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .8rem 2rem;
+            border-radius: 40px;
+            font-size: .78rem;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: all var(--t);
+            border: 1px solid transparent;
+        }
+
+        .btn-dark {
+            background: var(--g5);
+            color: var(--c);
+            border-color: var(--g5)
+        }
+
+        .btn-dark:hover {
+            background: var(--a);
+            border-color: var(--a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--sh2)
+        }
+
+        .btn-ghost {
+            background: none;
+            color: var(--g5);
+            border-color: var(--g1)
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--a);
+            color: var(--a);
+            transform: translateY(-2px)
+        }
+
+        .btn-accent {
+            background: var(--a);
+            color: var(--w);
+            border-color: var(--a)
+        }
+
+        .btn-accent:hover {
+            background: var(--a3);
+            border-color: var(--a3);
+            transform: translateY(-2px)
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            margin-top: 3rem;
+            color: var(--g2);
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 48px;
+            height: 1px;
+            background: var(--g1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--a);
+            animation: scrollLine 2s var(--ease) infinite;
+        }
+
+        @keyframes scrollLine {
+            0% {
+                left: -100%
+            }
+
+            100% {
+                left: 100%
+            }
+        }
+
+        /* Hero illustration */
+        .hero-art {
+            position: relative;
+            height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-art svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 20px 50px var(--sh))
+        }
+
+        /* Floating badges */
+        .badge {
+            position: absolute;
+            background: var(--w);
+            border: 1px solid var(--g1);
+            border-radius: 12px;
+            padding: .7rem 1.1rem;
+            box-shadow: 0 4px 20px var(--sh);
+            font-size: .75rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .badge-1 {
+            top: 15%;
+            right: -5%;
+            animation: float 4s ease-in-out infinite
+        }
+
+        .badge-2 {
+            bottom: 22%;
+            left: -6%;
+            animation: float 4s ease-in-out infinite .8s
+        }
+
+        .badge-3 {
+            top: 52%;
+            right: -8%;
+            animation: float 4s ease-in-out infinite 1.6s
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-8px)
+            }
+        }
+
+        .badge .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--a)
+        }
+
+        .badge strong {
+            font-weight: 500;
+            color: var(--g5)
+        }
+
+        .badge span {
+            color: var(--g3)
+        }
+
+        /* ── MARQUEE ── */
+        .marquee-wrap {
+            background: var(--g5);
+            padding: 1rem 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid var(--g4);
+            border-bottom: 1px solid var(--g4);
+        }
+
+        body.dark .marquee-wrap {
+            background: var(--g1)
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            gap: 3rem;
+            animation: marquee 22s linear infinite;
+        }
+
+        .marquee-track span {
+            font-size: .72rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--g2);
+            font-weight: 300;
+        }
+
+        .marquee-track .dot-m {
+            color: var(--a);
+            font-size: 1.2rem;
+            line-height: 1
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ── STATS BAR ── */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1320px;
+            margin: 0 auto;
+            border-left: 1px solid var(--g1);
+        }
+
+        .stat {
+            padding: 2.5rem 2rem;
+            border-right: 1px solid var(--g1);
+            border-bottom: 1px solid var(--g1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 60%, var(--c2) 100%);
+            opacity: 0;
+            transition: opacity var(--t);
+        }
+
+        .stat:hover::before {
+            opacity: 1
+        }
+
+        .stat-n {
+            font-family: var(--fd);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--a);
+            line-height: 1;
+            margin-bottom: .4rem;
+        }
+
+        .stat-l {
+            font-size: .7rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--g3)
+        }
+
+        /* ── SECTION SHARED ── */
+        .section {
+            padding: 6rem 2rem;
+            max-width: 1320px;
+            margin: 0 auto
+        }
+
+        .section.wide {
+            max-width: none;
+            padding-left: 2rem;
+            padding-right: 2rem
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .68rem;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--a);
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+        }
+
+        .tag::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--a)
+        }
+
+        .sh {
+            font-family: var(--fd);
+            font-size: clamp(2rem, 3.5vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.12;
+            color: var(--g5);
+            margin-bottom: 1.2rem;
+            letter-spacing: -.01em;
+        }
+
+        .sh em {
+            font-style: italic;
+            color: var(--a)
+        }
+
+        .sub {
+            color: var(--g3);
+            line-height: 1.85;
+            max-width: 520px;
+            font-weight: 300;
+            font-size: .97rem
+        }
+
+        /* Grid cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem
+        }
+
+        .card {
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            padding: 2rem;
+            border-radius: var(--r);
+            transition: all var(--t);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 100%;
+            height: 2px;
+            background: var(--a);
+            transition: right .4s var(--ease);
+        }
+
+        .card:hover::before {
+            right: 0
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px var(--sh)
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem
+        }
+
+        .card h3 {
+            font-family: var(--fd);
+            font-size: 1.25rem;
+            font-weight: 300;
+            margin-bottom: .6rem;
+            color: var(--g5)
+        }
+
+        .card p {
+            font-size: .83rem;
+            color: var(--g3);
+            line-height: 1.75;
+            font-weight: 300
+        }
+
+        .card-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--a);
+            margin-top: 1rem;
+            transition: gap var(--t);
+        }
+
+        .card:hover .card-arrow {
+            gap: .8rem
+        }
+
+        /* ── ABOUT ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start
+        }
+
+        .about-img {
+            position: relative;
+            height: 560px;
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            border-radius: var(--r);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom right, transparent 60%, var(--a) 200%);
+            opacity: .04;
+        }
+
+        .val {
+            padding: 1.6rem 0;
+            border-bottom: 1px solid var(--g1);
+            display: flex;
+            gap: 1.5rem
+        }
+
+        .val-n {
+            font-family: var(--fd);
+            font-size: 1rem;
+            color: var(--a);
+            font-weight: 300;
+            font-style: italic;
+            min-width: 28px;
+            padding-top: .1rem;
+        }
+
+        .val h4 {
+            font-size: .85rem;
+            letter-spacing: .06em;
+            font-weight: 500;
+            margin-bottom: .4rem;
+            color: var(--g5)
+        }
+
+        .val p {
+            font-size: .83rem;
+            color: var(--g3);
+            line-height: 1.75;
+            font-weight: 300
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem
+        }
+
+        .team-card {
+            text-align: center
+        }
+
+        .team-av {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--c3);
+            border: 1px solid var(--g1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all var(--t);
+        }
+
+        .team-card:hover .team-av {
+            border-color: var(--a);
+            transform: scale(1.05)
+        }
+
+        .team-card h4 {
+            font-family: var(--fd);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: .3rem
+        }
+
+        .team-card p {
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--g3)
+        }
+
+        /* ── BUILD HOME ── */
+        .builder {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-top: 3rem
+        }
+
+        .sidebar {
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            padding: 1.8rem;
+            border-radius: var(--r);
+            position: sticky;
+            top: 90px;
+            max-height: calc(100vh - 110px);
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            font-family: var(--fd);
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--g5)
+        }
+
+        .cg {
+            margin-bottom: 1.8rem
+        }
+
+        .cl {
+            display: block;
+            font-size: .68rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--g3);
+            margin-bottom: .7rem;
+            font-weight: 500;
+        }
+
+        .opts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem
+        }
+
+        .opt {
+            padding: .4rem .9rem;
+            background: var(--c);
+            border: 1px solid var(--g1);
+            color: var(--g3);
+            font-size: .75rem;
+            border-radius: 40px;
+            transition: all var(--t);
+            font-family: var(--fb);
+        }
+
+        .opt:hover,
+        .opt.sel {
+            border-color: var(--a);
+            color: var(--a);
+            background: var(--c2)
+        }
+
+        input[type=range] {
+            width: 100%;
+            accent-color: var(--a);
+            margin-top: .4rem;
+            height: 2px;
+        }
+
+        input[type=color] {
+            width: 100%;
+            height: 36px;
+            border: 1px solid var(--g1);
+            border-radius: var(--r);
+            background: var(--c);
+            padding: 2px;
+            cursor: pointer;
+            transition: border-color var(--t);
+        }
+
+        input[type=color]:hover {
+            border-color: var(--a)
+        }
+
+        .canvas {
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            border-radius: var(--r);
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .canvas::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(216, 210, 200, .4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(216, 210, 200, .4) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        #hsvg {
+            width: 88%;
+            height: 88%;
+            position: relative;
+            z-index: 1
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem
+        }
+
+        .style-card {
+            border: 1px solid var(--g1);
+            padding: 1.8rem;
+            background: var(--c2);
+            border-radius: var(--r);
+            cursor: pointer;
+            transition: all var(--t);
+        }
+
+        .style-card:hover {
+            border-color: var(--a);
+            transform: translateY(-4px)
+        }
+
+        .sc-thumb {
+            height: 100px;
+            border-radius: var(--r);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+        }
+
+        .style-card h4 {
+            font-family: var(--fd);
+            font-size: 1.05rem;
+            font-weight: 300;
+            margin-bottom: .4rem
+        }
+
+        .style-card p {
+            font-size: .78rem;
+            color: var(--g3);
+            line-height: 1.6;
+            font-weight: 300
+        }
+
+        /* ── COLOURS ── */
+        .pal-section {
+            margin-bottom: 3.5rem
+        }
+
+        .swatches {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+            gap: 1rem;
+            margin-top: 1.2rem
+        }
+
+        .sw {
+            cursor: pointer;
+            border-radius: var(--r);
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all var(--t);
+        }
+
+        .sw:hover,
+        .sw.on {
+            border-color: var(--a);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--sh)
+        }
+
+        .sw-c {
+            height: 72px
+        }
+
+        .sw-l {
+            padding: .45rem .6rem;
+            font-size: .68rem;
+            text-align: center;
+            background: var(--c2);
+            color: var(--g3);
+            letter-spacing: .06em;
+        }
+
+        .room-studio {
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            border-radius: var(--r);
+            padding: 2.5rem;
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        .pickers h4 {
+            font-family: var(--fd);
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem
+        }
+
+        .pc {
+            margin-bottom: 1.3rem
+        }
+
+        .pc label {
+            font-size: .68rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--g3);
+            display: block;
+            margin-bottom: .5rem
+        }
+
+        .room-view {
+            height: 320px;
+            border-radius: var(--r);
+            position: relative;
+            overflow: hidden;
+            transition: background .4s;
+        }
+
+        .room-wall {
+            position: absolute;
+            inset: 0;
+            transition: background .4s
+        }
+
+        .room-floor {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 32%;
+            transition: background .4s;
+            border-top: 1px solid rgba(0, 0, 0, .08)
+        }
+
+        .room-accent {
+            position: absolute;
+            bottom: 32%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 55%;
+            height: 38px;
+            border-radius: 4px 4px 0 0;
+            transition: background .4s;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, .08);
+        }
+
+        .room-win {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 80px;
+            background: rgba(196, 218, 235, .55);
+            border: 2px solid rgba(255, 255, 255, .35);
+            border-radius: 2px;
+        }
+
+        .room-win::before,
+        .room-win::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, .35)
+        }
+
+        .room-win::before {
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            transform: translateX(-50%)
+        }
+
+        .room-win::after {
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            transform: translateY(-50%)
+        }
+
+        /* ── MAP ── */
+        .map-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem
+        }
+
+        #gmap {
+            width: 100%;
+            height: 480px;
+            border: 1px solid var(--g1);
+            border-radius: var(--r)
+        }
+
+        .map-right h3 {
+            font-family: var(--fd);
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.8rem
+        }
+
+        .ig {
+            margin-bottom: 1.1rem
+        }
+
+        .ig label {
+            font-size: .68rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--g3);
+            display: block;
+            margin-bottom: .45rem
+        }
+
+        .ig input,
+        .ig select,
+        .ig textarea {
+            width: 100%;
+            padding: .7rem 1rem;
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            color: var(--g5);
+            font-family: var(--fb);
+            font-size: .9rem;
+            border-radius: var(--r);
+            transition: border-color var(--t);
+        }
+
+        .ig input:focus,
+        .ig select:focus,
+        .ig textarea:focus {
+            outline: none;
+            border-color: var(--a)
+        }
+
+        .ig textarea {
+            resize: vertical;
+            min-height: 80px
+        }
+
+        .ig-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem
+        }
+
+        .area-box {
+            background: var(--c3);
+            border: 1px solid var(--g1);
+            padding: 1.5rem;
+            border-radius: var(--r);
+            margin: 1.5rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .area-n {
+            font-family: var(--fd);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--a);
+            line-height: 1
+        }
+
+        .area-l {
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--g3);
+            margin-top: .3rem
+        }
+
+        /* ── CONTACT ── */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 5rem
+        }
+
+        .cinfo {
+            margin-bottom: 2rem
+        }
+
+        .cdet {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            align-items: flex-start
+        }
+
+        .cicon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--g1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            color: var(--a);
+            background: var(--c2);
+            transition: all var(--t);
+        }
+
+        .cdet:hover .cicon {
+            background: var(--a);
+            color: var(--w);
+            border-color: var(--a)
+        }
+
+        .cdet h4 {
+            font-size: .82rem;
+            letter-spacing: .06em;
+            font-weight: 500;
+            margin-bottom: .3rem;
+            color: var(--g5)
+        }
+
+        .cdet p,
+        .cdet a {
+            font-size: .88rem;
+            color: var(--g3);
+            font-weight: 300;
+            line-height: 1.6;
+            transition: color var(--t)
+        }
+
+        .cdet a:hover {
+            color: var(--a)
+        }
+
+        .qr-box {
+            background: var(--c2);
+            border: 1px solid var(--g1);
+            padding: 2rem;
+            border-radius: var(--r);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .qr-box h4 {
+            font-family: var(--fd);
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: .4rem
+        }
+
+        .qr-box p {
+            font-size: .8rem;
+            color: var(--g3);
+            margin-bottom: 1.5rem;
+            line-height: 1.6
+        }
+
+        .plans {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .8rem;
+            margin-bottom: 1.5rem
+        }
+
+        .plan {
+            border: 1.5px solid var(--g1);
+            padding: 1.1rem;
+            border-radius: var(--r);
+            cursor: pointer;
+            transition: all var(--t);
+            text-align: left;
+            background: var(--c);
+        }
+
+        .plan:hover,
+        .plan.on {
+            border-color: var(--a);
+            background: var(--c2)
+        }
+
+        .plan-nm {
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--g3);
+            margin-bottom: .2rem
+        }
+
+        .plan-pr {
+            font-family: var(--fd);
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: var(--a)
+        }
+
+        .plan-pr sub {
+            font-size: .7rem;
+            font-family: var(--fb);
+            color: var(--g3)
+        }
+
+        .plan-ft {
+            font-size: .72rem;
+            color: var(--g3);
+            margin-top: .3rem;
+            line-height: 1.5;
+            font-weight: 300
+        }
+
+        .qr-img {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 1rem;
+            background: var(--w);
+            border: 1px solid var(--g1);
+            border-radius: var(--r);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cform h3 {
+            font-family: var(--fd);
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--g5)
+        }
+
+        .fr {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem
+        }
+
+        /* ── LANGUAGE PANEL ── */
+        .lang-drop {
+            position: fixed;
+            top: 68px;
+            right: 2rem;
+            z-index: 2000;
+            background: var(--w);
+            border: 1px solid var(--g1);
+            border-radius: var(--r);
+            padding: .7rem;
+            min-width: 170px;
+            box-shadow: 0 12px 40px var(--sh2);
+            display: none;
+        }
+
+        .lang-drop.show {
+            display: block;
+            animation: fadeIn .2s var(--ease)
+        }
+
+        .lo {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            padding: .55rem .8rem;
+            border-radius: var(--r);
+            cursor: pointer;
+            font-size: .83rem;
+            color: var(--g3);
+            transition: all var(--t);
+        }
+
+        .lo:hover,
+        .lo.on {
+            background: var(--c2);
+            color: var(--a)
+        }
+
+        /* ── TOAST ── */
+        #toast {
+            position: fixed;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--g5);
+            color: var(--c);
+            padding: .75rem 2rem;
+            border-radius: 40px;
+            font-size: .8rem;
+            letter-spacing: .08em;
+            transition: transform .4s var(--ease);
+            z-index: 9999;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        #toast.show {
+            transform: translateX(-50%) translateY(0)
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--g5);
+            color: var(--c);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid var(--g4);
+        }
+
+        body.dark footer {
+            background: var(--c3);
+            border-color: var(--g2)
+        }
+
+        .foot-in {
+            max-width: 1320px;
+            margin: 0 auto
+        }
+
+        .foot-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .foot-brand .logo {
+            color: var(--c)
+        }
+
+        .foot-brand .logo em {
+            color: var(--a2)
+        }
+
+        .foot-brand p {
+            color: var(--g2);
+            font-size: .83rem;
+            line-height: 1.8;
+            margin-top: 1rem;
+            font-weight: 300;
+            max-width: 280px
+        }
+
+        .foot-col h5 {
+            font-size: .68rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--g3);
+            margin-bottom: 1.1rem
+        }
+
+        .foot-col ul {
+            list-style: none
+        }
+
+        .foot-col li {
+            margin-bottom: .6rem
+        }
+
+        .foot-col a {
+            color: var(--g2);
+            font-size: .83rem;
+            font-weight: 300;
+            transition: color var(--t)
+        }
+
+        .foot-col a:hover {
+            color: var(--a2)
+        }
+
+        .foot-bot {
+            border-top: 1px solid var(--g4);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.dark .foot-bot {
+            border-color: var(--g2)
+        }
+
+        .foot-bot p {
+            color: var(--g3);
+            font-size: .75rem
+        }
+
+        /* ── CTA BANNER ── */
+        .cta-band {
+            background: var(--g5);
+            position: relative;
+            overflow: hidden;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        body.dark .cta-band {
+            background: var(--c3)
+        }
+
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 140%;
+            height: 200%;
+            background: radial-gradient(ellipse at 60% 50%, rgba(154, 123, 82, .12) 0%, transparent 70%);
+        }
+
+        .cta-band h2 {
+            font-family: var(--fd);
+            font-size: clamp(2rem, 4vw, 4rem);
+            font-weight: 300;
+            color: var(--c);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cta-band h2 em {
+            font-style: italic;
+            color: var(--a2)
+        }
+
+        .cta-band p {
+            color: var(--g2);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.85;
+            font-weight: 300;
+            position: relative
+        }
+
+        .cta-band .btn-row {
+            justify-content: center;
+            position: relative
+        }
+
+        /* ── BG SECTION ALTERNATE ── */
+        .alt-bg {
+            background: var(--c2)
+        }
+
+        /* ── MOBILE ── */
+        @media(max-width:920px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--c);
+                padding: 1.5rem 2rem;
+                gap: 1.2rem;
+                border-bottom: 1px solid var(--g1);
+            }
+
+            nav ul.open {
+                display: flex
+            }
+
+            .burger {
+                display: flex
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 100px;
+                min-height: auto;
+                padding-bottom: 3rem
+            }
+
+            .hero-art {
+                height: 280px
+            }
+
+            .badge-1,
+            .badge-2,
+            .badge-3 {
+                display: none
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .about-grid,
+            .map-layout,
+            .contact-layout {
+                grid-template-columns: 1fr
+            }
+
+            .builder {
+                grid-template-columns: 1fr
+            }
+
+            .sidebar {
+                position: static;
+                max-height: none
+            }
+
+            .room-studio {
+                grid-template-columns: 1fr
+            }
+
+            .foot-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem
+            }
+
+            .fr {
+                grid-template-columns: 1fr
+            }
+
+            body {
+                cursor: auto
+            }
+
+            #cursor,
+            #cursor-ring {
+                display: none
+            }
+        }
+
+        @media(max-width:580px) {
+            .stats {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .foot-grid {
+                grid-template-columns: 1fr
+            }
+
+            .plans {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* Stagger load animations */
+        .s0 {
+            animation-delay: .0s
+        }
+
+        .s1 {
+            animation-delay: .1s
+        }
+
+        .s2 {
+            animation-delay: .2s
+        }
+
+        .s3 {
+            animation-delay: .33s
+        }
+
+        .s4 {
+            animation-delay: .46s
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ═══════════════ NAV ═══════════════ -->
+    <nav>
+        <div class="nav-wrap">
+            <div class="logo" onclick="go('home')" style="cursor:pointer">
+                YOUR <em>HOME</em><span>Studio</span>
+            </div>
+            <ul id="nav-ul">
+                <li><a href="#" class="on" data-p="home" onclick="go('home');return false">Home</a></li>
+                <li><a href="#" data-p="about" onclick="go('about');return false">About</a></li>
+                <li><a href="#" data-p="build" onclick="go('build');return false">Build Home</a></li>
+                <li><a href="#" data-p="colours" onclick="go('colours');return false">Colours</a></li>
+                <li><a href="#" data-p="map" onclick="go('map');return false">Plot Map</a></li>
+                <li><a href="#" data-p="contact" onclick="go('contact');return false">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="n-btn" id="lang-btn" onclick="toggleLang()">🌐 EN ▾</button>
+                <button class="n-btn solid" id="mode-btn" onclick="toggleMode()">☀ Modern</button>
+                <button class="burger" onclick="document.getElementById('nav-ul').classList.toggle('open')">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Language Dropdown -->
+    <div class="lang-drop" id="lang-drop">
+        <div class="lo on" data-l="en" onclick="setLang('en')">🇬🇧 English</div>
+        <div class="lo" data-l="hi" onclick="setLang('hi')">🇮🇳 हिंदी</div>
+        <div class="lo" data-l="pa" onclick="setLang('pa')">🇮🇳 ਪੰਜਾਬੀ</div>
+        <div class="lo" data-l="fr" onclick="setLang('fr')">🇫🇷 Français</div>
+        <div class="lo" data-l="de" onclick="setLang('de')">🇩🇪 Deutsch</div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+
+    <!-- ═══════════════════════════════════════
+  PAGE: HOME
+════════════════════════════════════════ -->
+    <div class="page on" id="pg-home">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div>
+                <div class="hero-eyebrow s0" style="animation:fadeIn .6s var(--ease) both">
+                    <span data-t="eyebrow">Architecture & Design Studio</span>
+                </div>
+                <h1 class="s1" style="animation:fadeIn .6s var(--ease) .1s both">
+                    <span data-t="h1a">Design Your</span><br>
+                    <em data-t="h1b">Dream Home</em><br>
+                    <strong data-t="h1c">Your Way.</strong>
+                </h1>
+                <p class="s2" style="animation:fadeIn .6s var(--ease) .22s both" data-t="hero-sub">
+                    Visualise, customise and build your perfect space — from layout to colour palette. Every detail is
+                    yours to define, whether you love modern minimalism or warm traditional comfort.
+                </p>
+                <div class="btn-row s3" style="animation:fadeIn .6s var(--ease) .35s both">
+                    <button class="btn btn-dark" onclick="go('build')">
+                        ✦ <span data-t="cta-build">Start Building</span>
+                    </button>
+                    <button class="btn btn-ghost" onclick="go('about')">
+                        <span data-t="cta-tour">Explore Studio</span> →
+                    </button>
+                </div>
+                <div class="scroll-hint s4" style="animation:fadeIn .6s var(--ease) .48s both">
+                    <div class="scroll-line"></div>
+                    <span data-t="scroll-hint">Scroll to explore</span>
+                </div>
+            </div>
+
+            <div class="hero-art s2" style="animation:fadeIn .8s var(--ease) .2s both">
+                <!-- Main House Illustration -->
+                <svg viewBox="0 0 500 450" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="wg" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#EEE7D8" />
+                            <stop offset="1" stop-color="#E3D9C6" />
+                        </linearGradient>
+                        <linearGradient id="rg" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0" stop-color="#B8B2A8" />
+                            <stop offset="1" stop-color="#8A8478" />
+                        </linearGradient>
+                        <filter id="soft">
+                            <feGaussianBlur stdDeviation="2" />
+                        </filter>
+                    </defs>
+                    <!-- Shadow -->
+                    <ellipse cx="250" cy="430" rx="210" ry="14" fill="#2E2C28" opacity=".07" />
+                    <!-- Ground -->
+                    <rect x="20" y="390" width="460" height="4" rx="2" fill="#D8D2C8" />
+                    <!-- Path -->
+                    <path d="M220 392 Q235 415 250 430" stroke="#E3D9C6" stroke-width="22" fill="none" opacity=".6" />
+                    <!-- Trees L -->
+                    <ellipse cx="60" cy="345" rx="30" ry="38" fill="#C8C0B0" opacity=".55" />
+                    <rect x="57" y="378" width="7" height="16" fill="#B8B0A2" rx="2" />
+                    <ellipse cx="75" cy="358" rx="20" ry="26" fill="#D4CEC4" opacity=".5" />
+                    <!-- Trees R -->
+                    <ellipse cx="440" cy="340" rx="26" ry="34" fill="#C8C0B0" opacity=".55" />
+                    <rect x="437" y="370" width="6" height="20" fill="#B8B0A2" rx="2" />
+                    <!-- House body -->
+                    <rect x="90" y="230" width="320" height="162" fill="url(#wg)" stroke="#D8D2C8" stroke-width="1.5" />
+                    <!-- Gable roof -->
+                    <polygon points="70,230 250,105 430,230" fill="url(#rg)" />
+                    <!-- Roof ridge -->
+                    <line x1="250" y1="105" x2="250" y2="230" stroke="#9A9490" stroke-width="1.5" opacity=".4" />
+                    <!-- Roof edge highlight -->
+                    <polygon points="70,230 250,105 430,230" fill="none" stroke="#C8C0B0" stroke-width="1.5"
+                        opacity=".6" />
+                    <!-- Chimney -->
+                    <rect x="325" y="135" width="38" height="80" fill="#9A9490" />
+                    <rect x="320" y="130" width="48" height="10" fill="#AEAAA4" rx="1" />
+                    <!-- Smoke -->
+                    <path d="M344 128 Q348 118 344 110 Q340 102 344 94" stroke="#D8D2C8" stroke-width="2.5" fill="none"
+                        stroke-linecap="round" opacity=".5" />
+                    <path d="M350 126 Q356 112 350 100" stroke="#D8D2C8" stroke-width="2" fill="none"
+                        stroke-linecap="round" opacity=".35" />
+                    <!-- Dormer window -->
+                    <rect x="226" y="152" width="48" height="38" fill="#C4D8E8" rx="2" opacity=".75" />
+                    <polygon points="222,154 250,136 278,154" fill="#AEAAA4" />
+                    <line x1="250" y1="152" x2="250" y2="190" stroke="#B8D0E0" stroke-width="1" opacity=".7" />
+                    <!-- Windows ground floor -->
+                    <rect x="110" y="262" width="88" height="80" fill="#C4D8E8" rx="2" opacity=".8" />
+                    <line x1="154" y1="262" x2="154" y2="342" stroke="#D8E8F0" stroke-width="1.5" />
+                    <line x1="110" y1="302" x2="198" y2="302" stroke="#D8E8F0" stroke-width="1.5" />
+                    <!-- Window frame L -->
+                    <rect x="108" y="260" width="92" height="84" fill="none" stroke="#C8C0B0" stroke-width="1.2"
+                        rx="2" />
+                    <!-- Windows right -->
+                    <rect x="302" y="262" width="88" height="80" fill="#C4D8E8" rx="2" opacity=".8" />
+                    <line x1="346" y1="262" x2="346" y2="342" stroke="#D8E8F0" stroke-width="1.5" />
+                    <line x1="302" y1="302" x2="390" y2="302" stroke="#D8E8F0" stroke-width="1.5" />
+                    <rect x="300" y="260" width="92" height="84" fill="none" stroke="#C8C0B0" stroke-width="1.2"
+                        rx="2" />
+                    <!-- Door arch -->
+                    <rect x="212" y="300" width="76" height="92" fill="#9A7B52" rx="38 38 0 0" />
+                    <rect x="214" y="302" width="72" height="88" fill="none" stroke="#C4A87A" stroke-width="1.2"
+                        rx="36 36 0 0" />
+                    <!-- Door panel detail -->
+                    <rect x="222" y="330" width="26" height="30" fill="none" stroke="#C4A87A" stroke-width="1" rx="2" />
+                    <rect x="252" y="330" width="26" height="30" fill="none" stroke="#C4A87A" stroke-width="1" rx="2" />
+                    <circle cx="249" cy="349" r="4" fill="#C4A87A" />
+                    <!-- Step -->
+                    <rect x="196" y="388" width="108" height="8" fill="#D8D2C8" rx="2" />
+                    <!-- Garden detail -->
+                    <rect x="90" y="380" width="100" height="12" fill="#C8C0B0" rx="2" opacity=".4" />
+                    <rect x="310" y="380" width="100" height="12" fill="#C8C0B0" rx="2" opacity=".4" />
+                </svg>
+
+                <!-- Floating badges -->
+                <div class="badge badge-1">
+                    <div class="dot"></div>
+                    <div><strong>Modern Mode</strong><br><span>Clean & minimal</span></div>
+                </div>
+                <div class="badge badge-2">
+                    <div class="dot"></div>
+                    <div><strong>Live Builder</strong><br><span>Design in real-time</span></div>
+                </div>
+                <div class="badge badge-3">
+                    <div class="dot"></div>
+                    <div><strong>320+ Palettes</strong><br><span>Colour studio</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee-wrap">
+            <div class="marquee-track" id="mq">
+                <span>Architecture</span><span class="dot-m">·</span>
+                <span>Interior Design</span><span class="dot-m">·</span>
+                <span>Colour Studio</span><span class="dot-m">·</span>
+                <span>Plot Planning</span><span class="dot-m">·</span>
+                <span>3D Visualisation</span><span class="dot-m">·</span>
+                <span>Vastu Consulting</span><span class="dot-m">·</span>
+                <span>Modern &amp; Traditional</span><span class="dot-m">·</span>
+                <span>Your Vision. Your Rules.</span><span class="dot-m">·</span>
+                <span>Architecture</span><span class="dot-m">·</span>
+                <span>Interior Design</span><span class="dot-m">·</span>
+                <span>Colour Studio</span><span class="dot-m">·</span>
+                <span>Plot Planning</span><span class="dot-m">·</span>
+                <span>3D Visualisation</span><span class="dot-m">·</span>
+                <span>Vastu Consulting</span><span class="dot-m">·</span>
+                <span>Modern &amp; Traditional</span><span class="dot-m">·</span>
+                <span>Your Vision. Your Rules.</span><span class="dot-m">·</span>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats" style="border-bottom:1px solid var(--g1)">
+            <div class="stat">
+                <div class="stat-n" id="sn1">0</div>
+                <div class="stat-l" data-t="s1">Designs Created</div>
+            </div>
+            <div class="stat">
+                <div class="stat-n" id="sn2">0</div>
+                <div class="stat-l" data-t="s2">Happy Families</div>
+            </div>
+            <div class="stat">
+                <div class="stat-n" id="sn3">0</div>
+                <div class="stat-l" data-t="s3">Colour Palettes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-n" id="sn4">0</div>
+                <div class="stat-l" data-t="s4">Cities</div>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <section class="section">
+            <div class="tag" data-t="feat-tag">What We Offer</div>
+            <h2 class="sh"><span data-t="feat-h">Everything you need</span><br><em data-t="feat-h2">to build your
+                    space</em></h2>
+            <div class="cards">
+                <div class="card" onclick="go('build')">
+                    <div class="card-icon">🏗</div>
+                    <h3>Layout Builder</h3>
+                    <p>Interactive house designer — pick style, roof, floors, and colours. See your home come alive in
+                        real time.</p>
+                    <div class="card-arrow">Explore →</div>
+                </div>
+                <div class="card" onclick="go('colours')">
+                    <div class="card-icon">🎨</div>
+                    <h3>Colour Studio</h3>
+                    <p>300+ curated palettes and a live room preview. Pick the exact mood for every room.</p>
+                    <div class="card-arrow">Explore →</div>
+                </div>
+                <div class="card" onclick="go('map')">
+                    <div class="card-icon">🗺</div>
+                    <h3>Plot Mapping</h3>
+                    <p>Find your plot on Google Maps. Plan orientation, calculate area, and request consultation.</p>
+                    <div class="card-arrow">Explore →</div>
+                </div>
+                <div class="card" onclick="go('contact')">
+                    <div class="card-icon">💬</div>
+                    <h3>Expert Guidance</h3>
+                    <p>Talk to our architecture team. Personalised consultation for your exact vision and budget.</p>
+                    <div class="card-arrow">Explore →</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <div class="cta-band">
+            <h2><span data-t="cta-h">Modern minimal</span><br><em data-t="cta-h2">or warmly traditional?</em></h2>
+            <p data-t="cta-p">Toggle between our two signature modes — see how completely your home can transform. Both
+                are beautiful. Both are yours.</p>
+            <div class="btn-row">
+                <button class="btn btn-accent" onclick="toggleMode()">Switch Style Mode</button>
+                <button class="btn btn-ghost" style="border-color:var(--g3);color:var(--g1)" onclick="go('build')">Build
+                    Now →</button>
+            </div>
+        </div>
+
+    </div><!-- END HOME -->
+
+
+    <!-- ═══════════════════════════════════════
+  PAGE: ABOUT
+════════════════════════════════════════ -->
+    <div class="page" id="pg-about">
+        <section class="section">
+            <div class="tag" data-t="ab-tag">Our Philosophy</div>
+            <div class="about-grid">
+                <div>
+                    <h2 class="sh"><span data-t="ab-h">Architecture that</span><br><em data-t="ab-h2">feels like
+                            you</em></h2>
+                    <p class="sub" data-t="ab-sub">We believe your home should be a reflection of your personality.
+                        Whether you prefer the warmth of a sober traditional design or the clean lines of modern
+                        minimalism — your home, your rules.</p>
+
+                    <div style="margin-top:2.5rem">
+                        <div class="val">
+                            <div class="val-n">01</div>
+                            <div>
+                                <h4>Client-First Design</h4>
+                                <p>Every decision starts with you. We listen, understand, then craft a space that tells
+                                    your story. No templates, no compromise.</p>
+                            </div>
+                        </div>
+                        <div class="val">
+                            <div class="val-n">02</div>
+                            <div>
+                                <h4>Versatile Aesthetics</h4>
+                                <p>From sleek modern monochrome to warm earthy interiors — we design across the full
+                                    spectrum without losing quality.</p>
+                            </div>
+                        </div>
+                        <div class="val">
+                            <div class="val-n">03</div>
+                            <div>
+                                <h4>Transparent Process</h4>
+                                <p>You see every iteration, every change, every option. Our digital tools let you be the
+                                    architect of your own vision.</p>
+                            </div>
+                        </div>
+                        <div class="val">
+                            <div class="val-n">04</div>
+                            <div>
+                                <h4>Sustainable Spaces</h4>
+                                <p>Efficient layouts, natural light optimisation, and materials that age beautifully —
+                                    sustainability built in from day one.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <!-- Blueprint illustration -->
+                    <div class="about-img">
+                        <svg viewBox="0 0 380 460" xmlns="http://www.w3.org/2000/svg" width="320" height="400">
+                            <g stroke="#C8C0B0" stroke-width=".6" opacity=".5">
+                                <line x1="0" y1="115" x2="380" y2="115" />
+                                <line x1="0" y1="230" x2="380" y2="230" />
+                                <line x1="0" y1="345" x2="380" y2="345" />
+                                <line x1="95" y1="0" x2="95" y2="460" />
+                                <line x1="190" y1="0" x2="190" y2="460" />
+                                <line x1="285" y1="0" x2="285" y2="460" />
+                            </g>
+                            <!-- House outline -->
+                            <polygon points="40,248 190,88 340,248" fill="none" stroke="#9A7B52" stroke-width="1.8" />
+                            <rect x="58" y="248" width="264" height="154" fill="none" stroke="#9A7B52"
+                                stroke-width="1.8" />
+                            <!-- Room dividers -->
+                            <line x1="58" y1="325" x2="322" y2="325" stroke="#B8B0A0" stroke-width="1"
+                                stroke-dasharray="5,3" />
+                            <line x1="190" y1="248" x2="190" y2="402" stroke="#B8B0A0" stroke-width="1"
+                                stroke-dasharray="5,3" />
+                            <!-- Room labels -->
+                            <text x="124" y="295" text-anchor="middle" font-family="DM Sans" font-size="9.5"
+                                fill="#8A8478">Living Room</text>
+                            <text x="256" y="295" text-anchor="middle" font-family="DM Sans" font-size="9.5"
+                                fill="#8A8478">Kitchen</text>
+                            <text x="124" y="368" text-anchor="middle" font-family="DM Sans" font-size="9.5"
+                                fill="#8A8478">Bedroom</text>
+                            <text x="256" y="368" text-anchor="middle" font-family="DM Sans" font-size="9.5"
+                                fill="#8A8478">Bathroom</text>
+                            <!-- Door marks -->
+                            <path d="M58 325 Q78 325 78 305" fill="none" stroke="#9A7B52" stroke-width="1.2" />
+                            <path d="M190 310 Q210 310 210 290" fill="none" stroke="#9A7B52" stroke-width="1.2" />
+                            <!-- Window marks -->
+                            <rect x="90" y="246" width="40" height="4" fill="#9A7B52" />
+                            <rect x="250" y="246" width="40" height="4" fill="#9A7B52" />
+                            <!-- Compass -->
+                            <circle cx="340" cy="72" r="22" fill="none" stroke="#9A7B52" stroke-width="1.5" />
+                            <polygon points="340,53 344,72 340,65 336,72" fill="#9A7B52" />
+                            <polygon points="340,91 344,72 340,79 336,72" fill="#B8B0A0" />
+                            <text x="340" y="50" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#9A7B52"
+                                font-weight="500">N</text>
+                            <!-- Dimension lines -->
+                            <g stroke="#B8B0A0" stroke-width=".8">
+                                <line x1="58" y1="418" x2="322" y2="418" />
+                                <line x1="58" y1="414" x2="58" y2="422" />
+                                <line x1="322" y1="414" x2="322" y2="422" />
+                            </g>
+                            <text x="190" y="432" text-anchor="middle" font-family="DM Sans" font-size="8.5"
+                                fill="#8A8478">13.2 m</text>
+                            <g stroke="#B8B0A0" stroke-width=".8">
+                                <line x1="340" y1="248" x2="340" y2="402" />
+                                <line x1="336" y1="248" x2="344" y2="248" />
+                                <line x1="336" y1="402" x2="344" y2="402" />
+                            </g>
+                            <text x="353" y="330" text-anchor="middle" font-family="DM Sans" font-size="8.5"
+                                fill="#8A8478">7.7 m</text>
+                            <!-- Title block -->
+                            <rect x="20" y="24" width="180" height="48" fill="none" stroke="#B8B0A0"
+                                stroke-width=".8" />
+                            <text x="30" y="42" font-family="Cormorant Garamond" font-size="13" fill="#2E2C28"
+                                font-weight="300">YOUR HOME</text>
+                            <text x="30" y="58" font-family="DM Sans" font-size="8" fill="#8A8478">Floor Plan — Ground
+                                Floor</text>
+                            <text x="30" y="68" font-family="DM Sans" font-size="7.5" fill="#B8B0A0">Scale 1:100</text>
+                        </svg>
+                    </div>
+
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem">
+                        <div
+                            style="background:var(--c2);border:1px solid var(--g1);padding:1.5rem;text-align:center;border-radius:var(--r)">
+                            <div style="font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--a)">12+</div>
+                            <div
+                                style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g3);margin-top:.3rem">
+                                Years Experience</div>
+                        </div>
+                        <div
+                            style="background:var(--c2);border:1px solid var(--g1);padding:1.5rem;text-align:center;border-radius:var(--r)">
+                            <div style="font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--a)">100%
+                            </div>
+                            <div
+                                style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g3);margin-top:.3rem">
+                                Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <div class="alt-bg" style="border-top:1px solid var(--g1);border-bottom:1px solid var(--g1);padding:5rem 2rem">
+            <div style="max-width:1320px;margin:0 auto">
+                <div class="tag">The Team</div>
+                <h2 class="sh">Meet Our <em>Architects</em></h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-av">👤</div>
+                        <h4>Keshav Bhardwaj</h4>
+                        <p>Founder & Lead Architect</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-av">👤</div>
+                        <h4>Ritu Sharma</h4>
+                        <p>Interior Design Head</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-av">👤</div>
+                        <h4>Anjali</h4>
+                        <p>Structural Engineer</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-av">👤</div>
+                        <h4>Nandini Garg</h4>
+                        <p>Colour & Materials</p>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-av">👤</div>
+                        <h4>Raghav Sharma</h4>
+                        <p>3D Visualisation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-band">
+            <h2>Ready to <em>begin?</em></h2>
+            <p>Let's design the home you've always imagined.</p>
+            <div class="btn-row">
+                <button class="btn btn-accent" onclick="go('build')">Open Builder</button>
+                <button class="btn btn-ghost" style="border-color:var(--g3);color:var(--g1)"
+                    onclick="go('contact')">Contact Us</button>
+            </div>
+        </div>
+    </div><!-- END ABOUT -->
+
+
+    <!-- ═══════════════════════════════════════
+  PAGE: BUILD HOME
+════════════════════════════════════════ -->
+    <div class="page" id="pg-build">
+        <section class="section">
+            <div class="tag" data-t="bd-tag">Design Studio</div>
+            <h2 class="sh" data-t="bd-h">Build Your <em>Home</em></h2>
+            <p class="sub" data-t="bd-sub">Choose a style, shape the form, and preview your house live. Every control
+                updates the drawing instantly.</p>
+
+            <div class="builder">
+                <!-- Controls sidebar -->
+                <div class="sidebar">
+                    <h3>Design Controls</h3>
+
+                    <div class="cg">
+                        <span class="cl">Architectural Style</span>
+                        <div class="opts">
+                            <button class="opt sel" data-s="modern" onclick="selOpt(this,'ds')">Modern</button>
+                            <button class="opt" data-s="traditional" onclick="selOpt(this,'ds')">Traditional</button>
+                        </div>
+                    </div>
+
+                    <div class="cg">
+                        <span class="cl">Roof Type</span>
+                        <div class="opts">
+                            <button class="opt" data-r="flat" onclick="selOpt(this,'dr')">Flat</button>
+                            <button class="opt sel" data-r="gable" onclick="selOpt(this,'dr')">Gable</button>
+                            <button class="opt" data-r="hip" onclick="selOpt(this,'dr')">Hip</button>
+                            <button class="opt" data-r="dome" onclick="selOpt(this,'dr')">Dome</button>
+                            <button class="opt" data-r="shed" onclick="selOpt(this,'dr')">Shed</button>
+                        </div>
+                    </div>
+
+                    <div class="cg">
+                        <span class="cl">Floors: <span id="fl-val">1 Floor</span></span>
+                        <input type="range" id="fl-sl" min="1" max="4" value="1" oninput="updFloors(this)" />
+                    </div>
+
+                    <div class="cg">
+                        <span class="cl">Wall Colour</span>
+                        <input type="color" id="bc-wall" value="#EEE7D8" oninput="drawHouse()" />
+                    </div>
+                    <div class="cg">
+                        <span class="cl">Roof Colour</span>
+                        <input type="color" id="bc-roof" value="#8A8478" oninput="drawHouse()" />
+                    </div>
+                    <div class="cg">
+                        <span class="cl">Door Colour</span>
+                        <input type="color" id="bc-door" value="#9A7B52" oninput="drawHouse()" />
+                    </div>
+                    <div class="cg">
+                        <span class="cl">Window Tint</span>
+                        <input type="color" id="bc-win" value="#C4D8E8" oninput="drawHouse()" />
+                    </div>
+
+                    <button class="btn btn-dark" style="width:100%;margin-top:.5rem;justify-content:center"
+                        onclick="toast('✓ Design saved! We\'ll contact you to proceed.')">Save My Design</button>
+                    <button class="btn btn-ghost" style="width:100%;margin-top:.6rem;justify-content:center"
+                        onclick="go('contact')">Request Consultation →</button>
+                </div>
+
+                <!-- Canvas -->
+                <div class="canvas">
+                    <div id="hsvg" style="width:88%;height:430px"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Style inspirations -->
+        <div class="alt-bg" style="border-top:1px solid var(--g1);padding:4rem 2rem">
+            <div style="max-width:1320px;margin:0 auto">
+                <div class="tag">Inspirations</div>
+                <h2 class="sh">Popular <em>Styles</em></h2>
+                <div class="style-grid">
+                    <div class="style-card" onclick="applyStyle('modern','flat')">
+                        <div class="sc-thumb" style="background:linear-gradient(135deg,#2E2C28,#585450)">🏢</div>
+                        <h4>Contemporary Modern</h4>
+                        <p>Flat roofs, large windows, clean geometry, minimal ornamentation.</p>
+                    </div>
+                    <div class="style-card" onclick="applyStyle('traditional','gable')">
+                        <div class="sc-thumb" style="background:linear-gradient(135deg,#9A7B52,#C4A87A)">🏡</div>
+                        <h4>Traditional Classic</h4>
+                        <p>Gable roofs, arched doors, warm tones, timeless proportions.</p>
+                    </div>
+                    <div class="style-card" onclick="applyStyle('traditional','hip')">
+                        <div class="sc-thumb" style="background:linear-gradient(135deg,#8A8478,#C8C0B0)">🏘</div>
+                        <h4>Colonial Heritage</h4>
+                        <p>Hip roofs, symmetrical facade, colonial details and proportions.</p>
+                    </div>
+                    <div class="style-card" onclick="applyStyle('traditional','dome')">
+                        <div class="sc-thumb" style="background:linear-gradient(135deg,#C4A87A,#EEE7D8)">🕌</div>
+                        <h4>Indo-Fusion</h4>
+                        <p>Curved domes, sandstone palette, Indian heritage meets modern comfort.</p>
+                    </div>
+                    <div class="style-card" onclick="applyStyle('modern','shed')">
+                        <div class="sc-thumb" style="background:linear-gradient(135deg,#585450,#9A9490)">🏠</div>
+                        <h4>Scandinavian</h4>
+                        <p>Shed roofs, natural wood tones, simple forms and cosy interior warmth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- END BUILD -->
+
+
+    <!-- ═══════════════════════════════════════
+  PAGE: COLOURS
+════════════════════════════════════════ -->
+    <div class="page" id="pg-colours">
+        <section class="section">
+            <div class="tag" data-t="cl-tag">Colour Studio</div>
+            <h2 class="sh" data-t="cl-h">Choose Your <em>Palette</em></h2>
+            <p class="sub" data-t="cl-sub">Every room tells a story through colour. Craft yours with curated palettes —
+                or pick entirely your own.</p>
+
+            <!-- Warm Neutrals -->
+            <div class="pal-section" style="margin-top:3rem">
+                <div class="tag">Warm Neutrals</div>
+                <div class="swatches">
+                    <div class="sw" onclick="applySw('#F5EFE0')">
+                        <div class="sw-c" style="background:#F5EFE0"></div>
+                        <div class="sw-l">Linen</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#EDE6D4')">
+                        <div class="sw-c" style="background:#EDE6D4"></div>
+                        <div class="sw-l">Parchment</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#DDD0B8')">
+                        <div class="sw-c" style="background:#DDD0B8"></div>
+                        <div class="sw-l">Sand</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#C8B490')">
+                        <div class="sw-c" style="background:#C8B490"></div>
+                        <div class="sw-l">Wheat</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#B09870')">
+                        <div class="sw-c" style="background:#B09870"></div>
+                        <div class="sw-l">Camel</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#9A7B52')">
+                        <div class="sw-c" style="background:#9A7B52"></div>
+                        <div class="sw-l">Teak</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#EEE4D0')">
+                        <div class="sw-c" style="background:#EEE4D0"></div>
+                        <div class="sw-l">Ivory</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#E0D4BC')">
+                        <div class="sw-c" style="background:#E0D4BC"></div>
+                        <div class="sw-l">Muslin</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cool Greys -->
+            <div class="pal-section">
+                <div class="tag">Cool Greys</div>
+                <div class="swatches">
+                    <div class="sw" onclick="applySw('#F4F2F0')">
+                        <div class="sw-c" style="background:#F4F2F0"></div>
+                        <div class="sw-l">Chalk</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#E2DDD8')">
+                        <div class="sw-c" style="background:#E2DDD8"></div>
+                        <div class="sw-l">Silver</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#C8C4BE')">
+                        <div class="sw-c" style="background:#C8C4BE"></div>
+                        <div class="sw-l">Stone</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#A8A49E')">
+                        <div class="sw-c" style="background:#A8A49E"></div>
+                        <div class="sw-l">Dune</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#888480')">
+                        <div class="sw-c" style="background:#888480"></div>
+                        <div class="sw-l">Slate</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#60605C')">
+                        <div class="sw-c" style="background:#60605C"></div>
+                        <div class="sw-l">Graphite</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#3C3A36')">
+                        <div class="sw-c" style="background:#3C3A36"></div>
+                        <div class="sw-l">Charcoal</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#1C1A18')">
+                        <div class="sw-c" style="background:#1C1A18"></div>
+                        <div class="sw-l">Onyx</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earthy -->
+            <div class="pal-section">
+                <div class="tag">Earthy & Nature</div>
+                <div class="swatches">
+                    <div class="sw" onclick="applySw('#C8D8B4')">
+                        <div class="sw-c" style="background:#C8D8B4"></div>
+                        <div class="sw-l">Sage</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#A4C496')">
+                        <div class="sw-c" style="background:#A4C496"></div>
+                        <div class="sw-l">Fern</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#D8C8A8')">
+                        <div class="sw-c" style="background:#D8C8A8"></div>
+                        <div class="sw-l">Clay</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#C09070')">
+                        <div class="sw-c" style="background:#C09070"></div>
+                        <div class="sw-l">Terracotta</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#B8A898')">
+                        <div class="sw-c" style="background:#B8A898"></div>
+                        <div class="sw-l">Driftwood</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#CEB890')">
+                        <div class="sw-c" style="background:#CEB890"></div>
+                        <div class="sw-l">Ochre</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#C0CED4')">
+                        <div class="sw-c" style="background:#C0CED4"></div>
+                        <div class="sw-l">Mist</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#A8BBC4')">
+                        <div class="sw-c" style="background:#A8BBC4"></div>
+                        <div class="sw-l">Haze</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deep Jewels -->
+            <div class="pal-section">
+                <div class="tag">Deep & Dramatic</div>
+                <div class="swatches">
+                    <div class="sw" onclick="applySw('#2C3E50')">
+                        <div class="sw-c" style="background:#2C3E50"></div>
+                        <div class="sw-l">Navy</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#4A3728')">
+                        <div class="sw-c" style="background:#4A3728"></div>
+                        <div class="sw-l">Espresso</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#3D2B1F')">
+                        <div class="sw-c" style="background:#3D2B1F"></div>
+                        <div class="sw-l">Walnut</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#2E3E30')">
+                        <div class="sw-c" style="background:#2E3E30"></div>
+                        <div class="sw-l">Forest</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#4A3044')">
+                        <div class="sw-c" style="background:#4A3044"></div>
+                        <div class="sw-l">Plum</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#5A3825')">
+                        <div class="sw-c" style="background:#5A3825"></div>
+                        <div class="sw-l">Mahogany</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#1E3040')">
+                        <div class="sw-c" style="background:#1E3040"></div>
+                        <div class="sw-l">Deep Sea</div>
+                    </div>
+                    <div class="sw" onclick="applySw('#382820')">
+                        <div class="sw-c" style="background:#382820"></div>
+                        <div class="sw-l">Bark</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Room Preview -->
+            <div class="room-studio">
+                <div class="pickers">
+                    <h4>Custom Room<br><em style="font-style:italic;color:var(--a)">Colour Mixer</em></h4>
+                    <div class="pc"><label>Wall Colour</label><input type="color" id="rw" value="#F0E8D8"
+                            oninput="updateRoom()" /></div>
+                    <div class="pc"><label>Floor Colour</label><input type="color" id="rf" value="#C4A87A"
+                            oninput="updateRoom()" /></div>
+                    <div class="pc"><label>Furniture Accent</label><input type="color" id="ra" value="#585450"
+                            oninput="updateRoom()" /></div>
+                    <button class="btn btn-accent" style="width:100%;margin-top:.8rem;justify-content:center"
+                        onclick="toast('✓ Palette saved to your design!')">Save Palette</button>
+                </div>
+                <div>
+                    <div
+                        style="font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--g3);margin-bottom:.8rem">
+                        Live Room Preview</div>
+                    <div class="room-view" id="room-view">
+                        <div class="room-wall" id="room-wall"></div>
+                        <div class="room-floor" id="room-floor"></div>
+                        <div class="room-accent" id="room-accent"></div>
+                        <div class="room-win"></div>
+                        <!-- Lamp -->
+                        <div
+                            style="position:absolute;bottom:32%;right:12%;width:5px;height:55px;background:rgba(154,123,82,.3);border-radius:3px">
+                        </div>
+                        <div
+                            style="position:absolute;bottom:calc(32% + 55px);right:8%;width:18px;height:18px;background:rgba(255,240,200,.5);border-radius:50%;filter:blur(4px)">
+                        </div>
+                        <!-- Artwork on wall -->
+                        <div
+                            style="position:absolute;top:28%;left:10%;width:60px;height:44px;background:rgba(0,0,0,.1);border:1.5px solid rgba(255,255,255,.25);border-radius:1px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div><!-- END COLOURS -->
+
+
+    <!-- ═══════════════════════════════════════
+  PAGE: PLOT MAP
+════════════════════════════════════════ -->
+    <div class="page" id="pg-map">
+        <section class="section">
+            <div class="tag" data-t="mp-tag">Plot Layout</div>
+            <h2 class="sh" data-t="mp-h">Visualise Your <em>Land</em></h2>
+            <p class="sub" data-t="mp-sub">Enter your plot address to locate it on Google Maps. Plan orientation,
+                calculate area, and save for consultation.</p>
+
+            <div class="map-layout">
+                <!-- Map -->
+                <div>
+                    <iframe id="gmap" title="Plot Map" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+                        src="https://maps.google.com/maps?q=Sector+22,Chandigarh,India&z=14&output=embed">
+                    </iframe>
+                </div>
+
+                <!-- Controls -->
+                <div>
+                    <div class="map-right">
+                        <h3>Plot <em style="font-style:italic;color:var(--a)">Details</em></h3>
+
+                        <div class="ig">
+                            <label>Plot Address / Location</label>
+                            <input type="text" id="mp-addr" placeholder="e.g. Sector 22-C, Chandigarh, India"
+                                onkeydown="if(event.key==='Enter')searchMap()" />
+                        </div>
+                        <button class="btn btn-dark" style="margin-bottom:1.5rem" onclick="searchMap()">🔍 Locate on
+                            Map</button>
+
+                        <div class="ig-row">
+                            <div class="ig"><label>Width (metres)</label><input type="number" id="mp-w"
+                                    placeholder="e.g. 10" oninput="calcArea()" /></div>
+                            <div class="ig"><label>Depth (metres)</label><input type="number" id="mp-d"
+                                    placeholder="e.g. 18" oninput="calcArea()" /></div>
+                        </div>
+                        <div class="ig-row">
+                            <div class="ig">
+                                <label>Facing Direction</label>
+                                <select>
+                                    <option>East</option>
+                                    <option>West</option>
+                                    <option>North</option>
+                                    <option>South</option>
+                                    <option>North-East</option>
+                                    <option>South-West</option>
+                                </select>
+                            </div>
+                            <div class="ig">
+                                <label>Plot Shape</label>
+                                <select>
+                                    <option>Rectangle</option>
+                                    <option>Square</option>
+                                    <option>L-Shape</option>
+                                    <option>Corner Plot</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="area-box">
+                            <div>
+                                <div class="area-n" id="sqm-val">—</div>
+                                <div class="area-l">Square Metres</div>
+                            </div>
+                            <div>
+                                <div class="area-n" id="sqft-val">—</div>
+                                <div class="area-l">Square Feet</div>
+                            </div>
+                        </div>
+
+                        <div class="ig">
+                            <label>Additional Notes</label>
+                            <textarea placeholder="Corner plot, near park, south-facing gate..."></textarea>
+                        </div>
+
+                        <button class="btn btn-accent" style="width:100%;justify-content:center"
+                            onclick="toast('✓ Plot saved! Our team will contact you.')">📋 Save & Request
+                            Consultation</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div><!-- END MAP -->
+
+
+    <!-- ═══════════════════════════════════════
+  PAGE: CONTACT
+════════════════════════════════════════ -->
+    <div class="page" id="pg-contact">
+        <section class="section">
+            <div class="tag" data-t="ct-tag">Get In Touch</div>
+            <h2 class="sh" data-t="ct-h">Let's Build <em>Together</em></h2>
+            <p class="sub" data-t="ct-sub">Have questions? Want a personalised consultation? Reach out anytime — we
+                reply within 24 hours.</p>
+
+            <div class="contact-layout" style="margin-top:3.5rem">
+                <!-- Left: info + QR -->
+                <div>
+                    <div class="cinfo">
+                        <div class="cdet">
+                            <div class="cicon">✉</div>
+                            <div>
+                                <h4>Email Us</h4><a href="mailto:kb4112007@gmail.com">kb4112007@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="cdet">
+                            <div class="cicon">📍</div>
+                            <div>
+                                <h4>Our Studio</h4>
+                                <p>South Extension 145/5 , Delhi — 110076, India</p>
+                            </div>
+                        </div>
+                        <div class="cdet">
+                            <div class="cicon">📞</div>
+                            <div>
+                                <h4>Call / WhatsApp</h4>
+                                <p>+91 70562-74400 </p>
+                            </div>
+                        </div>
+                        <div class="cdet">
+                            <div class="cicon">🕐</div>
+                            <div>
+                                <h4>Studio Hours</h4>
+                                <p>Monday–Saturday, 9 AM – 8 PM IST</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QR / Plans -->
+                    <div class="qr-box">
+                        <h4>Subscribe & Unlock Premium</h4>
+                        <p>Scan to subscribe and access exclusive templates, priority consultation, and 3D rendering.
+                        </p>
+                        <div class="plans">
+                            <div class="plan on" onclick="selPlan(this)">
+                                <div class="plan-nm">Basic</div>
+                                <div class="plan-pr">₹499<sub>/mo</sub></div>
+                                <div class="plan-ft">10 designs · Email support</div>
+                            </div>
+                            <div class="plan" onclick="selPlan(this)">
+                                <div class="plan-nm">Pro</div>
+                                <div class="plan-pr">₹1,499<sub>/mo</sub></div>
+                                <div class="plan-ft">Unlimited · 3D · Consultation</div>
+                            </div>
+                        </div>
+
+                        <!-- QR Code SVG -->
+                        <div class="qr-img">
+                            <svg viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" width="130" height="130">
+                                <rect width="130" height="130" fill="white" />
+                                <!-- Top-left finder -->
+                                <rect x="8" y="8" width="36" height="36" rx="3" fill="none" stroke="#2E2C28"
+                                    stroke-width="3" />
+                                <rect x="14" y="14" width="24" height="24" rx="1" fill="#2E2C28" />
+                                <rect x="19" y="19" width="14" height="14" rx="1" fill="white" />
+                                <rect x="22" y="22" width="8" height="8" fill="#2E2C28" />
+                                <!-- Top-right finder -->
+                                <rect x="86" y="8" width="36" height="36" rx="3" fill="none" stroke="#2E2C28"
+                                    stroke-width="3" />
+                                <rect x="92" y="14" width="24" height="24" rx="1" fill="#2E2C28" />
+                                <rect x="97" y="19" width="14" height="14" rx="1" fill="white" />
+                                <rect x="100" y="22" width="8" height="8" fill="#2E2C28" />
+                                <!-- Bottom-left finder -->
+                                <rect x="8" y="86" width="36" height="36" rx="3" fill="none" stroke="#2E2C28"
+                                    stroke-width="3" />
+                                <rect x="14" y="92" width="24" height="24" rx="1" fill="#2E2C28" />
+                                <rect x="19" y="97" width="14" height="14" rx="1" fill="white" />
+                                <rect x="22" y="100" width="8" height="8" fill="#2E2C28" />
+                                <!-- Data modules -->
+                                <g fill="#2E2C28">
+                                    <rect x="52" y="8" width="5" height="5" />
+                                    <rect x="59" y="8" width="5" height="5" />
+                                    <rect x="66" y="8" width="5" height="5" />
+                                    <rect x="52" y="15" width="5" height="5" />
+                                    <rect x="66" y="15" width="5" height="5" />
+                                    <rect x="73" y="8" width="5" height="5" />
+                                    <rect x="52" y="22" width="5" height="5" />
+                                    <rect x="59" y="22" width="5" height="5" />
+                                    <rect x="8" y="52" width="5" height="5" />
+                                    <rect x="15" y="52" width="5" height="5" />
+                                    <rect x="22" y="52" width="5" height="5" />
+                                    <rect x="29" y="59" width="5" height="5" />
+                                    <rect x="8" y="66" width="5" height="5" />
+                                    <rect x="22" y="66" width="5" height="5" />
+                                    <rect x="52" y="52" width="5" height="5" />
+                                    <rect x="59" y="59" width="5" height="5" />
+                                    <rect x="66" y="52" width="5" height="5" />
+                                    <rect x="52" y="66" width="5" height="5" />
+                                    <rect x="66" y="66" width="5" height="5" />
+                                    <rect x="73" y="59" width="5" height="5" />
+                                    <rect x="86" y="52" width="5" height="5" />
+                                    <rect x="93" y="59" width="5" height="5" />
+                                    <rect x="100" y="52" width="5" height="5" />
+                                    <rect x="107" y="52" width="5" height="5" />
+                                    <rect x="114" y="59" width="5" height="5" />
+                                    <rect x="86" y="66" width="5" height="5" />
+                                    <rect x="52" y="86" width="5" height="5" />
+                                    <rect x="59" y="93" width="5" height="5" />
+                                    <rect x="66" y="86" width="5" height="5" />
+                                    <rect x="52" y="100" width="5" height="5" />
+                                    <rect x="59" y="107" width="5" height="5" />
+                                    <rect x="66" y="100" width="5" height="5" />
+                                    <rect x="73" y="86" width="5" height="5" />
+                                    <rect x="52" y="114" width="5" height="5" />
+                                    <rect x="66" y="114" width="5" height="5" />
+                                    <rect x="73" y="107" width="5" height="5" />
+                                </g>
+                                <!-- Center logo badge -->
+                                <rect x="56" y="56" width="18" height="18" rx="3" fill="#9A7B52" />
+                                <text x="65" y="69" text-anchor="middle" font-size="11" fill="white"
+                                    font-family="serif">⌂</text>
+                            </svg>
+                        </div>
+                        <p style="font-size:.72rem;color:var(--g3)">Scan with any UPI app · Instant activation</p>
+                    </div>
+                </div>
+
+                <!-- Right: form -->
+                <div class="cform">
+                    <h3>Send Us a <em style="font-style:italic;color:var(--a)">Message</em></h3>
+                    <form onsubmit="submitForm(event)">
+                        <div class="fr">
+                            <div class="ig"><label>First Name</label><input type="text" placeholder="Rahul" required />
+                            </div>
+                            <div class="ig"><label>Last Name</label><input type="text" placeholder="Sharma" /></div>
+                        </div>
+                        <div class="ig"><label>Email Address</label><input type="email" placeholder="you@email.com"
+                                required /></div>
+                        <div class="ig"><label>Phone / WhatsApp</label><input type="tel"
+                                placeholder="+91 98765 43210" /></div>
+                        <div class="ig">
+                            <label>Project Type</label>
+                            <select>
+                                <option>New Home Construction</option>
+                                <option>Interior Design</option>
+                                <option>Renovation / Extension</option>
+                                <option>Commercial Space</option>
+                                <option>Plot Planning Only</option>
+                                <option>Just Exploring</option>
+                            </select>
+                        </div>
+                        <div class="ig"><label>City / Location</label><input type="text"
+                                placeholder="Chandigarh, Punjab" /></div>
+                        <div class="ig">
+                            <label>Budget Range</label>
+                            <select>
+                                <option>Under ₹30 Lakh</option>
+                                <option>₹30–60 Lakh</option>
+                                <option>₹60 Lakh – 1 Crore</option>
+                                <option>Above 1 Crore</option>
+                                <option>Flexible / TBD</option>
+                            </select>
+                        </div>
+                        <div class="ig"><label>Your Message</label><textarea
+                                placeholder="Tell us about your dream home — style, size, timeline, anything..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-accent"
+                            style="width:100%;justify-content:center;font-size:.85rem">Send Message ✦</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div><!-- END CONTACT -->
+
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+        <div class="foot-in">
+            <div class="foot-grid">
+                <div class="foot-brand">
+                    <div class="logo" style="cursor:pointer" onclick="go('home')">YOUR <em>HOME</em><span
+                            style="color:var(--g3)">Studio</span></div>
+                    <p>Your vision, your architecture. We design homes that feel like you from the inside out — modern
+                        or traditional, always yours.</p>
+                    <p style="margin-top:1rem;font-size:.8rem">📧 kb4112007@gmail.com</p>
+                </div>
+                <div class="foot-col">
+                    <h5>Navigate</h5>
+                    <ul>
+                        <li><a href="#" onclick="go('home');return false">Home</a></li>
+                        <li><a href="#" onclick="go('about');return false">About</a></li>
+                        <li><a href="#" onclick="go('build');return false">Build Home</a></li>
+                        <li><a href="#" onclick="go('colours');return false">Colours</a></li>
+                        <li><a href="#" onclick="go('map');return false">Plot Map</a></li>
+                        <li><a href="#" onclick="go('contact');return false">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#">Architectural Design</a></li>
+                        <li><a href="#">Interior Planning</a></li>
+                        <li><a href="#">3D Visualisation</a></li>
+                        <li><a href="#">Vastu Consulting</a></li>
+                        <li><a href="#">Site Consultation</a></li>
+                        <li><a href="#">Renovation</a></li>
+                    </ul>
+                </div>
+                <div class="foot-col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="foot-bot">
+                <p>© 2025 YOUR HOME Studio · Chandigarh, India</p>
+                <p>Designed with <span style="color:var(--a)">intention</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        /* ═══════════════════════════════════
+           YOUR HOME — Complete JS
+        ═══════════════════════════════════ */
+
+        // ── Custom cursor ──
+        const cur = document.getElementById('cursor');
+        const ring = document.getElementById('cursor-ring');
+        let mx = 0, my = 0, rx = 0, ry = 0;
+        document.addEventListener('mousemove', e => {
+            mx = e.clientX; my = e.clientY;
+            cur.style.left = mx + 'px'; cur.style.top = my + 'px';
+        });
+        function animRing() {
+            rx += (mx - rx) * .12; ry += (my - ry) * .12;
+            ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+            requestAnimationFrame(animRing);
+        }
+        animRing();
+        document.querySelectorAll('a,button,.card,.sw,.style-card,.plan,.team-card,.stat,.opt').forEach(el => {
+            el.addEventListener('mouseenter', () => { cur.style.width = '20px'; cur.style.height = '20px'; ring.style.opacity = '0'; });
+            el.addEventListener('mouseleave', () => { cur.style.width = '12px'; cur.style.height = '12px'; ring.style.opacity = '.5'; });
+        });
+
+        // ── Page navigation ──
+        const pages = ['home', 'about', 'build', 'colours', 'map', 'contact'];
+        function go(id) {
+            pages.forEach(p => {
+                document.getElementById('pg-' + p).classList.remove('on');
+                const a = document.querySelector(`[data-p="${p}"]`);
+                if (a) a.classList.remove('on');
+            });
+            document.getElementById('pg-' + id).classList.add('on');
+            const na = document.querySelector(`[data-p="${id}"]`);
+            if (na) na.classList.add('on');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('nav-ul').classList.remove('open');
+            if (id === 'build') drawHouse();
+            if (id === 'colours') updateRoom();
+        }
+
+        // ── Toast ──
+        let toastT;
+        function toast(msg) {
+            const el = document.getElementById('toast');
+            el.textContent = msg; el.classList.add('show');
+            clearTimeout(toastT);
+            toastT = setTimeout(() => el.classList.remove('show'), 3200);
+        }
+
+        // ── Dark/Light mode ──
+        let dark = false;
+        function toggleMode() {
+            dark = !dark;
+            document.body.classList.toggle('dark', dark);
+            document.getElementById('mode-btn').textContent = dark ? '◑ Simple' : '☀ Modern';
+            toast(dark ? 'Modern dark mode activated' : 'Simple light mode restored');
+        }
+
+        // ── Language ──
+        const T = {
+            en: {
+                eyebrow: 'Architecture & Design Studio', h1a: 'Design Your', h1b: 'Dream Home', h1c: 'Your Way.',
+                'hero-sub': 'Visualise, customise and build your perfect space — from layout to colour palette. Every detail is yours to define.',
+                'cta-build': 'Start Building', 'cta-tour': 'Explore Studio', 'scroll-hint': 'Scroll to explore',
+                s1: 'Designs Created', s2: 'Happy Families', s3: 'Colour Palettes', s4: 'Cities',
+                'feat-tag': 'What We Offer', 'feat-h': 'Everything you need', 'feat-h2': 'to build your space',
+                'cta-h': 'Modern minimal', 'cta-h2': 'or warmly traditional?',
+                'cta-p': 'Toggle between our two signature modes — see how completely your home can transform.',
+                'ab-tag': 'Our Philosophy', 'ab-h': 'Architecture that', 'ab-h2': 'feels like you',
+                'ab-sub': 'We believe your home should be a reflection of your personality.',
+                'bd-tag': 'Design Studio', 'bd-h': 'Build Your', 'bd-sub': 'Choose a style, shape the form, and preview your house live.',
+                'cl-tag': 'Colour Studio', 'cl-h': 'Choose Your', 'cl-sub': 'Every room tells a story through colour.',
+                'mp-tag': 'Plot Layout', 'mp-h': 'Visualise Your', 'mp-sub': 'Enter your plot address to locate it on Google Maps.',
+                'ct-tag': 'Get In Touch', 'ct-h': 'Let\'s Build', 'ct-sub': 'Have questions? Reach out anytime.'
+            },
+            hi: {
+                eyebrow: 'आर्किटेक्चर और डिज़ाइन स्टूडियो', h1a: 'डिज़ाइन करें', h1b: 'सपनों का घर', h1c: 'आपके तरीके से।',
+                'hero-sub': 'लेआउट से रंग तक, हर विवरण आपका है।', 'cta-build': 'बनाना शुरू करें', 'cta-tour': 'स्टूडियो देखें', 'scroll-hint': 'नीचे स्क्रॉल करें',
+                s1: 'डिज़ाइन बनाए', s2: 'खुश परिवार', s3: 'रंग पैलेट', s4: 'शहर',
+                'feat-tag': 'हमारी सेवाएं', 'feat-h': 'सब कुछ जो आपको चाहिए', 'feat-h2': 'अपना घर बनाने के लिए',
+                'cta-h': 'आधुनिक मिनिमल', 'cta-h2': 'या गर्म पारंपरिक?',
+                'cta-p': 'दोनों मोड में बदलें और देखें आपका घर कैसे बदलता है।',
+                'ab-tag': 'हमारा दर्शन', 'ab-h': 'आर्किटेक्चर जो', 'ab-h2': 'आपको महसूस हो',
+                'ab-sub': 'हम मानते हैं आपका घर आपकी पहचान होनी चाहिए।',
+                'bd-tag': 'डिज़ाइन स्टूडियो', 'bd-h': 'बनाएं अपना', 'bd-sub': 'शैली चुनें और रियल टाइम में अपना घर देखें।',
+                'cl-tag': 'रंग स्टूडियो', 'cl-h': 'चुनें अपना', 'cl-sub': 'हर कमरे की कहानी रंगों से होती है।',
+                'mp-tag': 'प्लॉट लेआउट', 'mp-h': 'देखें अपनी', 'mp-sub': 'प्लॉट का पता डालें और नक्शे पर देखें।',
+                'ct-tag': 'संपर्क करें', 'ct-h': 'मिलकर बनाएं', 'ct-sub': 'कोई सवाल? कभी भी संपर्क करें।'
+            },
+            pa: {
+                eyebrow: 'ਆਰਕੀਟੈਕਚਰ ਅਤੇ ਡਿਜ਼ਾਈਨ ਸਟੂਡੀਓ', h1a: 'ਡਿਜ਼ਾਈਨ ਕਰੋ', h1b: 'ਸੁਪਨਿਆਂ ਦਾ ਘਰ', h1c: 'ਆਪਣੇ ਢੰਗ ਨਾਲ।',
+                'hero-sub': 'ਲੇਆਉਟ ਤੋਂ ਰੰਗ ਤੱਕ, ਹਰ ਵੇਰਵਾ ਤੁਹਾਡਾ ਹੈ।', 'cta-build': 'ਬਣਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ', 'cta-tour': 'ਸਟੂਡੀਓ ਦੇਖੋ', 'scroll-hint': 'ਹੇਠਾਂ ਸਕ੍ਰੋਲ ਕਰੋ',
+                s1: 'ਡਿਜ਼ਾਈਨ ਬਣਾਏ', s2: 'ਖੁਸ਼ ਪਰਿਵਾਰ', s3: 'ਰੰਗ ਪੈਲੇਟ', s4: 'ਸ਼ਹਿਰ',
+                'feat-tag': 'ਸਾਡੀਆਂ ਸੇਵਾਵਾਂ', 'feat-h': 'ਸਭ ਕੁਝ ਜੋ ਤੁਹਾਨੂੰ ਚਾਹੀਦਾ', 'feat-h2': 'ਆਪਣਾ ਘਰ ਬਣਾਉਣ ਲਈ',
+                'cta-h': 'ਆਧੁਨਿਕ ਮਿਨੀਮਲ', 'cta-h2': 'ਜਾਂ ਨਿੱਘਾ ਪਰੰਪਰਿਕ?',
+                'cta-p': 'ਦੋਵੇਂ ਮੋਡ ਵਿੱਚ ਬਦਲੋ ਅਤੇ ਦੇਖੋ ਤੁਹਾਡਾ ਘਰ ਕਿਵੇਂ ਬਦਲਦਾ ਹੈ।',
+                'ab-tag': 'ਸਾਡਾ ਫਲਸਫਾ', 'ab-h': 'ਆਰਕੀਟੈਕਚਰ ਜੋ', 'ab-h2': 'ਤੁਹਾਨੂੰ ਮਹਿਸੂਸ ਹੋਵੇ',
+                'ab-sub': 'ਅਸੀਂ ਮੰਨਦੇ ਹਾਂ ਕਿ ਤੁਹਾਡਾ ਘਰ ਤੁਹਾਡੀ ਪਛਾਣ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।',
+                'bd-tag': 'ਡਿਜ਼ਾਈਨ ਸਟੂਡੀਓ', 'bd-h': 'ਬਣਾਓ ਆਪਣਾ', 'bd-sub': 'ਸ਼ੈਲੀ ਚੁਣੋ ਅਤੇ ਅਸਲ ਸਮੇਂ ਵਿੱਚ ਆਪਣਾ ਘਰ ਦੇਖੋ।',
+                'cl-tag': 'ਰੰਗ ਸਟੂਡੀਓ', 'cl-h': 'ਚੁਣੋ ਆਪਣਾ', 'cl-sub': 'ਹਰ ਕਮਰੇ ਦੀ ਕਹਾਣੀ ਰੰਗਾਂ ਨਾਲ ਹੁੰਦੀ ਹੈ।',
+                'mp-tag': 'ਪਲਾਟ ਲੇਆਉਟ', 'mp-h': 'ਦੇਖੋ ਆਪਣੀ', 'mp-sub': 'ਪਲਾਟ ਦਾ ਪਤਾ ਦਰਜ ਕਰੋ ਅਤੇ ਨਕਸ਼ੇ ਉੱਤੇ ਦੇਖੋ।',
+                'ct-tag': 'ਸੰਪਰਕ ਕਰੋ', 'ct-h': 'ਮਿਲ ਕੇ ਬਣਾਈਏ', 'ct-sub': 'ਕੋਈ ਸਵਾਲ? ਕਦੇ ਵੀ ਸੰਪਰਕ ਕਰੋ।'
+            },
+            fr: {
+                eyebrow: 'Studio d\'Architecture & Design', h1a: 'Concevez votre', h1b: 'Maison de rêve', h1c: 'À votre façon.',
+                'hero-sub': 'Visualisez, personnalisez et construisez votre espace idéal.', 'cta-build': 'Commencer', 'cta-tour': 'Explorer', 'scroll-hint': 'Défiler vers le bas',
+                s1: 'Designs créés', s2: 'Familles heureuses', s3: 'Palettes de couleurs', s4: 'Villes',
+                'feat-tag': 'Nos services', 'feat-h': 'Tout ce dont vous avez besoin', 'feat-h2': 'pour construire votre espace',
+                'cta-h': 'Moderne minimal', 'cta-h2': 'ou chaleureusement traditionnel?',
+                'cta-p': 'Basculez entre nos deux modes signature.',
+                'ab-tag': 'Notre philosophie', 'ab-h': 'Architecture qui', 'ab-h2': 'vous ressemble',
+                'ab-sub': 'Votre maison doit refléter votre personnalité.',
+                'bd-tag': 'Studio de conception', 'bd-h': 'Construisez votre', 'bd-sub': 'Choisissez un style et prévisualisez en temps réel.',
+                'cl-tag': 'Studio de couleurs', 'cl-h': 'Choisissez votre', 'cl-sub': 'Chaque pièce raconte une histoire à travers la couleur.',
+                'mp-tag': 'Plan du terrain', 'mp-h': 'Visualisez votre', 'mp-sub': 'Entrez l\'adresse de votre terrain.',
+                'ct-tag': 'Contactez-nous', 'ct-h': 'Construisons', 'ct-sub': 'Des questions? Écrivez-nous.'
+            },
+            de: {
+                eyebrow: 'Architektur & Design Studio', h1a: 'Gestalten Sie Ihr', h1b: 'Traumhaus', h1c: 'Auf Ihre Art.',
+                'hero-sub': 'Visualisieren, anpassen und bauen Sie Ihren perfekten Raum.', 'cta-build': 'Jetzt beginnen', 'cta-tour': 'Studio erkunden', 'scroll-hint': 'Nach unten scrollen',
+                s1: 'Designs erstellt', s2: 'Glückliche Familien', s3: 'Farbpaletten', s4: 'Städte',
+                'feat-tag': 'Was wir bieten', 'feat-h': 'Alles was Sie brauchen', 'feat-h2': 'um Ihr Haus zu bauen',
+                'cta-h': 'Modern minimal', 'cta-h2': 'oder warm traditionell?',
+                'cta-p': 'Wechseln Sie zwischen unseren zwei Signaturmodi.',
+                'ab-tag': 'Unsere Philosophie', 'ab-h': 'Architektur die', 'ab-h2': 'sich nach Ihnen anfühlt',
+                'ab-sub': 'Ihr Zuhause sollte Ihre Persönlichkeit widerspiegeln.',
+                'bd-tag': 'Design-Studio', 'bd-h': 'Ihr Haus bauen', 'bd-sub': 'Wählen Sie einen Stil und sehen Sie Ihr Haus in Echtzeit.',
+                'cl-tag': 'Farb-Studio', 'cl-h': 'Ihre Palette wählen', 'cl-sub': 'Jeder Raum erzählt eine Geschichte durch Farbe.',
+                'mp-tag': 'Grundstückslayout', 'mp-h': 'Ihr Grundstück', 'mp-sub': 'Geben Sie Ihre Adresse ein.',
+                'ct-tag': 'Kontakt', 'ct-h': 'Gemeinsam bauen', 'ct-sub': 'Fragen? Schreiben Sie uns.'
+            }
+        };
+        let lang = 'en';
+        function setLang(l) {
+            lang = l;
+            const t = T[l];
+            document.querySelectorAll('[data-t]').forEach(el => {
+                const k = el.getAttribute('data-t');
+                if (t[k]) el.textContent = t[k];
+            });
+            document.querySelectorAll('.lo').forEach(o => o.classList.remove('on'));
+            document.querySelector(`[data-l="${l}"]`).classList.add('on');
+            const names = { en: 'EN', hi: 'हिं', pa: 'ਪੰਜ', fr: 'FR', de: 'DE' };
+            document.getElementById('lang-btn').textContent = `🌐 ${names[l]} ▾`;
+            document.getElementById('lang-drop').classList.remove('show');
+        }
+        function toggleLang() {
+            document.getElementById('lang-drop').classList.toggle('show');
+        }
+        document.addEventListener('click', e => {
+            if (!e.target.closest('#lang-btn') && !e.target.closest('#lang-drop'))
+                document.getElementById('lang-drop').classList.remove('show');
+        });
+
+        // ── Counter animation ──
+        function animCount(id, target, suffix = '') {
+            const el = document.getElementById(id);
+            if (!el) return;
+            let n = 0, step = Math.ceil(target / 70);
+            const t = setInterval(() => {
+                n = Math.min(n + step, target);
+                el.textContent = n.toLocaleString() + suffix;
+                if (n >= target) clearInterval(t);
+            }, 20);
+        }
+        window.addEventListener('load', () => {
+            animCount('sn1', 2400, '+');
+            animCount('sn2', 980, '+');
+            animCount('sn3', 320, '');
+            animCount('sn4', 48, '');
+        });
+
+        // ── House Builder ──
+        let hc = { style: 'modern', roof: 'gable', floors: 1, wall: '#EEE7D8', roofC: '#8A8478', door: '#9A7B52', win: '#C4D8E8' };
+
+        function selOpt(el, grp) {
+            el.closest('.opts').querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
+            el.classList.add('sel');
+            if (grp === 'ds') hc.style = el.dataset.s;
+            if (grp === 'dr') hc.roof = el.dataset.r;
+            drawHouse();
+        }
+        function updFloors(el) {
+            hc.floors = parseInt(el.value);
+            document.getElementById('fl-val').textContent = el.value + (el.value > 1 ? ' Floors' : ' Floor');
+            drawHouse();
+        }
+        function drawHouse() {
+            const el = document.getElementById('hsvg');
+            if (!el) return;
+            hc.wall = document.getElementById('bc-wall')?.value || hc.wall;
+            hc.roofC = document.getElementById('bc-roof')?.value || hc.roofC;
+            hc.door = document.getElementById('bc-door')?.value || hc.door;
+            hc.win = document.getElementById('bc-win')?.value || hc.win;
+
+            const fh = 110, baseY = 400 - (hc.floors * fh) - 40;
+            let roofSVG = '';
+            if (hc.roof === 'flat') {
+                roofSVG = `<rect x="78" y="${baseY}" width="344" height="16" fill="${hc.roofC}" rx="2"/>`;
+            } else if (hc.roof === 'gable') {
+                roofSVG = `
+      <polygon points="68,${baseY} 250,${baseY - 100} 432,${baseY}" fill="${hc.roofC}"/>
+      <polygon points="68,${baseY} 250,${baseY - 100} 432,${baseY}" fill="none" stroke="${lightenHex(hc.roofC, 20)}" stroke-width="1.5" opacity=".5"/>
+    `;
+            } else if (hc.roof === 'hip') {
+                roofSVG = `<polygon points="68,${baseY} 140,${baseY - 72} 360,${baseY - 72} 432,${baseY}" fill="${hc.roofC}"/>
+              <line x1="140" y1="${baseY - 72}" x2="360" y2="${baseY - 72}" stroke="${lightenHex(hc.roofC, 20)}" stroke-width="1.2" opacity=".5"/>`;
+            } else if (hc.roof === 'dome') {
+                roofSVG = `<ellipse cx="250" cy="${baseY}" rx="185" ry="88" fill="${hc.roofC}"/>
+              <ellipse cx="250" cy="${baseY}" rx="185" ry="88" fill="none" stroke="${lightenHex(hc.roofC, 20)}" stroke-width="1.5" opacity=".4"/>`;
+            } else if (hc.roof === 'shed') {
+                roofSVG = `<polygon points="68,${baseY} 68,${baseY - 60} 432,${baseY - 20} 432,${baseY}" fill="${hc.roofC}"/>`;
+            }
+
+            let wins = '';
+            for (let f = 0; f < hc.floors; f++) {
+                const fy = baseY + 16 + f * fh;
+                if (hc.style === 'modern') {
+                    wins += `
+        <rect x="105" y="${fy + 18}" width="80" height="58" fill="${hc.win}" rx="1" opacity=".85"/>
+        <rect x="205" y="${fy + 18}" width="90" height="58" fill="${hc.win}" rx="1" opacity=".85"/>
+        <rect x="315" y="${fy + 18}" width="80" height="58" fill="${hc.win}" rx="1" opacity=".85"/>
+      `;
+                } else {
+                    wins += `
+        <rect x="105" y="${fy + 22}" width="72" height="64" fill="${hc.win}" rx="2" opacity=".8"/>
+        <line x1="141" y1="${fy + 22}" x2="141" y2="${fy + 86}" stroke="${lightenHex(hc.win, 10)}" stroke-width="1.5"/>
+        <line x1="105" y1="${fy + 54}" x2="177" y2="${fy + 54}" stroke="${lightenHex(hc.win, 10)}" stroke-width="1.5"/>
+        <rect x="103" y="${fy + 20}" width="76" height="68" fill="none" stroke="${lightenHex(hc.wall, 15)}" stroke-width="1.2" rx="2"/>
+        <rect x="323" y="${fy + 22}" width="72" height="64" fill="${hc.win}" rx="2" opacity=".8"/>
+        <line x1="359" y1="${fy + 22}" x2="359" y2="${fy + 86}" stroke="${lightenHex(hc.win, 10)}" stroke-width="1.5"/>
+        <line x1="323" y1="${fy + 54}" x2="395" y2="${fy + 54}" stroke="${lightenHex(hc.win, 10)}" stroke-width="1.5"/>
+        <rect x="321" y="${fy + 20}" width="76" height="68" fill="none" stroke="${lightenHex(hc.wall, 15)}" stroke-width="1.2" rx="2"/>
+      `;
+                }
+            }
+
+            const lastFY = baseY + 16 + (hc.floors - 1) * fh;
+            const door = hc.style === 'modern'
+                ? `<rect x="208" y="${lastFY + fh - 82}" width="84" height="82" fill="${hc.door}" rx="1"/>
+      <line x1="250" y1="${lastFY + fh - 82}" x2="250" y2="${lastFY + fh}" stroke="${darkenHex(hc.door, 15)}" stroke-width="1.5" opacity=".5"/>
+      <circle cx="286" cy="${lastFY + fh - 41}" r="4" fill="${lightenHex(hc.door, 25)}"/>`
+                : `<rect x="208" y="${lastFY + fh - 88}" width="84" height="88" fill="${hc.door}" rx="42 42 0 0"/>
+      <rect x="210" y="${lastFY + fh - 86}" width="80" height="84" fill="none" stroke="${lightenHex(hc.door, 18)}" stroke-width="1" rx="40 40 0 0"/>
+      <circle cx="286" cy="${lastFY + fh - 44}" r="4.5" fill="${lightenHex(hc.door, 28)}"/>`;
+
+            el.innerHTML = `<svg viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+    <defs>
+      <linearGradient id="wg2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="${hc.wall}"/>
+        <stop offset="1" stop-color="${darkenHex(hc.wall, 8)}"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="250" cy="410" rx="215" ry="11" fill="#2E2C28" opacity=".06"/>
+    <rect x="60" y="${baseY + 16 + hc.floors * fh}" width="380" height="4" rx="2" fill="#D8D2C8"/>
+    ${roofSVG}
+    <rect x="80" y="${baseY + 16}" width="340" height="${hc.floors * fh}" fill="url(#wg2)" stroke="#D8D2C8" stroke-width="1.2"/>
+    ${wins}
+    ${door}
+    <rect x="196" y="${baseY + 16 + hc.floors * fh - 6}" width="108" height="10" fill="${darkenHex(hc.wall, 10)}" rx="2"/>
+  </svg>`;
+        }
+
+        function lightenHex(hex, amt) {
+            try {
+                let r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+                return `rgb(${Math.min(255, r + amt)},${Math.min(255, g + amt)},${Math.min(255, b + amt)})`;
+            } catch { return hex }
+        }
+        function darkenHex(hex, amt) {
+            try {
+                let r = parseInt(hex.slice(1, 3), 16), g = parseInt(hex.slice(3, 5), 16), b = parseInt(hex.slice(5, 7), 16);
+                return `rgb(${Math.max(0, r - amt)},${Math.max(0, g - amt)},${Math.max(0, b - amt)})`;
+            } catch { return hex }
+        }
+
+        function applyStyle(s, r) {
+            hc.style = s; hc.roof = r;
+            document.querySelectorAll('[data-s]').forEach(b => b.classList.remove('sel'));
+            document.querySelector(`[data-s="${s}"]`)?.classList.add('sel');
+            document.querySelectorAll('[data-r]').forEach(b => b.classList.remove('sel'));
+            document.querySelector(`[data-r="${r}"]`)?.classList.add('sel');
+            drawHouse();
+            toast('✓ Style applied to builder');
+        }
+
+        // ── Room preview ──
+        function updateRoom() {
+            document.getElementById('room-wall').style.background = document.getElementById('rw').value;
+            document.getElementById('room-floor').style.background = document.getElementById('rf').value;
+            document.getElementById('room-accent').style.background = document.getElementById('ra').value;
+        }
+        function applySw(c) {
+            document.getElementById('rw').value = c;
+            updateRoom();
+            toast('✓ Colour applied to room preview');
+        }
+
+        // ── Map ──
+        function searchMap() {
+            const a = document.getElementById('mp-addr').value.trim();
+            if (!a) { toast('⚠ Enter an address first'); return; }
+            document.getElementById('gmap').src = `https://maps.google.com/maps?q=${encodeURIComponent(a)}&z=15&output=embed`;
+            toast('✓ Map updated: ' + a);
+        }
+        function calcArea() {
+            const w = parseFloat(document.getElementById('mp-w').value) || 0;
+            const d = parseFloat(document.getElementById('mp-d').value) || 0;
+            if (w > 0 && d > 0) {
+                document.getElementById('sqm-val').textContent = (w * d).toFixed(1) + ' m²';
+                document.getElementById('sqft-val').textContent = Math.round(w * d * 10.764).toLocaleString() + ' ft²';
+            }
+        }
+
+        // ── Form ──
+        function submitForm(e) {
+            e.preventDefault();
+            toast('✓ Message sent! We\'ll reply within 24 hours.');
+            e.target.reset();
+        }
+
+        // ── Plan select ──
+        function selPlan(el) {
+            document.querySelectorAll('.plan').forEach(p => p.classList.remove('on'));
+            el.classList.add('on');
+            toast('✓ Plan selected — scan QR to subscribe');
+        }
+
+        // ── Init ──
+        document.addEventListener('DOMContentLoaded', () => {
+            updateRoom();
+            drawHouse();
+            setTimeout(() => toast('Welcome to YOUR HOME Studio ✦'), 800);
+        });
+    </script>
+
+</body>
+
+</html>
